@@ -1,0 +1,15 @@
+{
+  "session_id": "019ef0e7-e353-7822-89e0-412709416638",
+  "source_of_truth": "updates.jsonl",
+  "first_synthesis_timestamp": 1782159521,
+  "parallel_batch_max": 12,
+  "native_x_mcp": false,
+  "waves": {
+    "wave1": {"tools": ["WebSearch", "WebFetch"], "count": 17, "dir": "wave1/"},
+    "wave2": {
+      "tools": ["WebSearch (site:x.com failed)", "WebFetch (HN x-discourse)"],
+      "count": 3,
+      "dir": "wave2/"
+    }
+  }
+}

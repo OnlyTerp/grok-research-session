@@ -1,0 +1,183 @@
+capture_source: goal_session_updates.jsonl
+session_id: 019ef0e7-e353-7822-89e0-412709416638
+tool: WebFetch
+tool_call_id: call-0367e56f-f0d5-4a13-82cb-c61ca4488ed4-composer_call_eExR5
+tool_arguments: {"url": "https://factory.ai/news/missions"}
+call_timestamp: 1782158619
+result_timestamp: 1782158619
+first_synthesis_timestamp: 1782159521
+bytes: 9838
+---
+# Content from https://factory.ai/news/missions
+
+Introducing Missions | Factory.ai
+
+[Go back](/news)
+
+# Introducing Missions
+
+By Factory - February 26, 2025 - 4 minute read -
+
+Share
+
+ProductEngineering
+
+An AI system that pursues goals autonomously over multi-day horizons. Describe what you want, approve the scope, and come back to finished work.
+
+Factory can now see projects through to completion, whether they take six hours or six days. You describe what you want and approve the plan. Droid handles decomposition, execution, and validation.
+
+[Try Missions in Factory](https://app.factory.ai)
+
+"Build me a CRM," "migrate this PHP codebase to TypeScript," "generate test coverage for this undocumented API." Droid breaks the project into features, spawns worker sessions for each one, coordinates handoffs through git, validates at every step, and recovers from failures automatically.
+
+Available in our CLI and IDE extensions. Starting today for Enterprise and Max plan users.
+
+## Pushing the limits of a single agent
+
+![Mission Control showing a running mission with feature list, progress log, and validation output](/static/mission-control-7a5684.png)
+
+Single sessions hit limits. Context windows fill up. Attention degrades over long trajectories. Droid starts forgetting what it already tried, re-reading files, losing track of the bigger picture.
+
+The natural instinct is to run multiple agents in parallel, but coordination is hard. Agents conflict, duplicate work, and drift without structure.
+
+Missions takes a different approach. Instead of fighting the limits of a single agent, we work with them. An orchestrator breaks large projects into milestones, each representing a meaningful checkpoint of progress. Every milestone ends with a validation phase: workers review the accumulated work, run tests, check for regressions, and verify that everything integrates. When validation surfaces issues, the orchestrator creates follow-up work to fix them before moving on.
+
+Within each milestone, the work is broken into features. Each feature gets a fresh worker session with clean context, so no single session has to hold the entire project in its head. When it makes sense, Missions parallelizes within features and during validation, so you get the reliability of sequential execution with the speed of parallel work where coordination overhead is low.
+
+Real missions from production
+
+Legacy Migration
+
+COBOL to Java Spring Boot
+
+Duration
+
+33.8 hrs
+
+Rust Internal Tool
+
+HTTP benchmarking tool from scratch
+
+Duration
+
+22.3 hrs
+
+Systems Debugging
+
+Production memory leak investigation
+
+Duration
+
+24.2 hrs
+
+Greenfield Desktop App
+
+Tauri + React note-taking app with MCP integrations
+
+Duration
+
+30 hrs
+
+Droid has native computer use built in, and we've tuned it specifically for mission workloads. Validation workers launch the application, navigate through flows, check that pages render correctly, and flag visual or functional issues. This means missions can QA applications the way a human would: clicking through the UI, verifying state transitions, catching layout bugs that no test suite would cover. It runs alongside the standard test/lint/build cycle, not as a replacement.
+
+## Learning and Generalizing as Droid works
+
+We designed Missions for software development, but they generalize further than we expected. The same system that builds a CRM can write a research paper or train ML models. Goal decomposition, execution, and validation apply to more than code.
+
+Droid does this with a skill-based learning system. When the orchestrator analyzes a new task, it identifies patterns that can be captured as reusable skills. Workers refine and extend the skill library as they work, so Missions gets better at your specific domain the more you use it.
+
+## What it looks like in practice
+
+We've been running Missions internally and with early customers since mid-January, with customers ranging from startups to Fortune 500 enterprises, spanning financial services, telecom, and IT services. Here's what the data looks like.
+
+### A different kind of workload
+
+Normal Droid sessions are interactive. Fast back-and-forth: the median session lasts about 8 minutes, with 60% finishing within 15 minutes. You ask, the agent responds, you iterate.
+
+Mission sessions are a different distribution entirely. The median mission runs for about 2 hours. 65% run longer than an hour. 37% run longer than four hours. The distribution is nearly flat from 15 minutes out to 24+ hours, which reflects real variance in project complexity rather than the sharp decay of interactive sessions.
+
+![Session duration distribution: normal sessions decay sharply (60% under 15 min) while missions are nearly uniform from 15 min to 24+ hours](/static/duration-distribution-chart-2f0e2d.png)
+
+14% of missions run longer than 24 hours. Some run for days. The longest ran for 16 days. These are persistent, multi-day autonomous workloads that make continuous progress toward a goal.
+
+![Missions running longer than 24 hours: broken out from 1-2 days through 2+ weeks, with the longest at 14 days](/static/duration-longtail-chart-941b4c.png)
+
+### More reasoning per turn
+
+Missions don't just run longer, they think differently. In a normal session, the agent fires off about 6 messages per minute. In a mission, the rate drops to about 3 messages per minute, but each message carries nearly twice the token weight (19K tokens vs 11K). That lower message rate reflects what missions actually spend time on: running builds, executing test suites, linting, typechecking, and browsing the application under test. Much of a mission's wall-clock time is spent waiting on real-world execution rather than generating tokens.
+
+![Session intensity comparison: missions have fewer messages per minute but 2x heavier per message, with 6x more median messages](/static/session-intensity-chart-4d681e.png)
+
+At the median, a mission consumes 12x more tokens than a normal session. At p99, the gap is 9x. The token burn rate is roughly the same (~45K tokens/min), missions just sustain it for much longer.
+
+### Different models for different jobs
+
+A normal Droid session typically only uses one model. Missions use many. The orchestrator, workers, validators, and research agents each have different jobs, and no single model is best at all of them.
+
+As models speciate further, this becomes a structural advantage. Systems locked to one model family will always be constrained by that family's weakest capability. A model-agnostic orchestrator can put the best model in each role regardless of provider, and swap them as the landscape shifts.
+
+Orchestration
+
+Planning, coordination, re-scoping
+
+Opus 4.6
+
+Feature implementation
+
+Code generation, refactoring, testing
+
+Sonnet 4.6 / Opus 4.6
+
+Validation & user testing
+
+Regression detection, integration checks
+
+GPT-5.3-Codex
+
+Research & exploration
+
+Literature review, API exploration, dependency analysis
+
+Kimi K2.5
+
+## How to use
+
+Run `/enter-mission` in any Droid session. Describe what you want built. Droid works with you to scope it: asking clarifying questions, probing for constraints, iterating on the plan. This is a conversation, not a one-shot prompt. The planning phase is where most of the value comes from.
+
+Once you approve the plan, Droid enters Mission Control and begins execution. From there, you're the project manager: monitoring progress, unblocking workers when they get stuck, redirecting when priorities change. Your MCP integrations, skills, hooks, and custom droids all carry over.
+
+## Controls, privacy, and enterprise
+
+Missions runs locally or in isolated cloud containers. Git is the source of truth. Every command is classified by risk level, Droid Shield scans for secrets before anything reaches a model, and hooks let you integrate your own security at key points. Every action is logged, and telemetry flows through OpenTelemetry.
+
+Deployment options include cloud-managed, hybrid (LLM traffic terminates inside your network via Azure OpenAI, Bedrock, Vertex, or self-hosted models), and fully airgapped. Org-level policies control allowed models and tools. SSO/SCIM, RBAC, and audit logging are available. Factory maintains SOC 2 Type II, ISO 27001, and ISO 42001 certifications.
+
+## Open questions
+
+Missions is early. It handles complex multi-day projects, but there are fundamental questions we're still working through.
+
+**How much parallelization actually helps.** Serial execution with targeted parallelization has worked better than broad parallelism. But the right balance probably depends on the project. Where does coordination overhead outweigh the speed gains?
+
+**Correctness over long horizons.** Long-running plans accumulate errors. Milestone validation catches most, but the orchestrator still scopes too broadly sometimes, and workers get stuck on edge cases a human would navigate easily.
+
+**Worker scope.** Narrow scope keeps workers focused but increases overall cost and introduces more coordination overhead. Broad scope maintains continuity within features, but stretches each agent's attention thinner.
+
+**Recursive management depth.** The orchestrator manages workers directly. Some tasks might benefit from sub-orchestrators managing their own workers. One layer works for most projects. Two might help for larger ones. Three starts to feel like a bureaucracy.
+
+We want feedback on all of this. Use Missions, push them hard, and tell us what works and what doesn't.
+
+## Availability
+
+Missions starts rolling out today for Enterprise and Max plan users.
+
+[Try Missions](https://app.factory.ai)
+
+![](/_next/image?url=%2Fimages%2Flight-gradient-texture.png&w=3840&q=75)![](/_next/image?url=%2Fimages%2Fgradient-texture.png&w=3840&q=75)
+
+Build with us
+
+start building
+
+## Ready to build the software of the future?
+
+[Start building](https://app.factory.ai/)

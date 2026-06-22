@@ -1,0 +1,23 @@
+capture_source: goal_session_updates.jsonl
+session_id: 019ef0e7-e353-7822-89e0-412709416638
+tool: WebSearch
+tool_call_id: call-8b792faa-2796-4e00-a7be-488bf53116fe-composer_call_8K43w
+tool_arguments: {"search_term": "xAI Grok Build credits pricing developer plan 2026", "explanation": "Wave 4: pricing and access research"}
+call_timestamp: 1782159374
+result_timestamp: 1782159487
+first_synthesis_timestamp: 1782159521
+bytes: 689
+---
+Title: Web search results
+Content: Links:
+1. [docs.x.ai](https://docs.x.ai/developers/pricing)
+2. [docs.x.ai](https://docs.x.ai/developers/models)
+3. [aitoolsrecap.com](https://aitoolsrecap.com/Blog/how-to-get-free-grok-api-credits-2026)
+4. [mem0.ai](https://mem0.ai/blog/xai-grok-api-pricing)
+5. [www.threads.com](https://www.threads.com/@testingcatalog/post/DW95Zu5jTzt/x-ai-is-working-on-credits-for-grok-build-users-will-receive-monthly-credits?hl=en)
+6. [x.ai](https://x.ai/news/grok-build-cli)
+7. [medium.com](https://medium.com/@candemir13/grok-build-what-xai-actually-shipped-and-whats-overstated-f98961b0d301)
+8. [x.ai](https://x.ai/pricing)
+9. [x.ai](https://x.ai/news/api)
+
+---

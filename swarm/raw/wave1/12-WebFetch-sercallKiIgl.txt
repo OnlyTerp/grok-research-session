@@ -1,0 +1,117 @@
+capture_source: goal_session_updates.jsonl
+session_id: 019ef0e7-e353-7822-89e0-412709416638
+tool: WebFetch
+tool_call_id: call-8b792faa-2796-4e00-a7be-488bf53116fe-composer_call_KiIgl
+tool_arguments: {"url": "https://cursor.com/blog/plan-mode"}
+call_timestamp: 1782159374
+result_timestamp: 1782159375
+first_synthesis_timestamp: 1782159521
+bytes: 5085
+---
+# Content from https://cursor.com/blog/plan-mode
+
+Introducing Plan Mode · Cursor
+
+[Blog](/blog) / [product](/blog/topic/product)
+
+![Plan Mode in Cursor](/marketing-static/_next/image?url=https%3A%2F%2Fptht05hbb1ssoooe.public.blob.vercel-storage.com%2Fassets%2Fblog%2Fplan-mode-0.png&w=1920&q=70)
+
+Cursor can now create plans, research your codebase, and run longer agents.
+
+Plan mode gives the model new tools to create and update plans, as well as an interactive editor to modify plans inline. Most new features at Cursor now begin with Agent writing a plan. We’ve seen this significantly improve the code generated.
+
+When you prompt Agent to create a plan, Cursor researches your codebase to find relevant files, review docs, and ask clarifying questions. When you’re happy with the plan, it creates a Markdown file with file paths and code references. You can edit the plan directly, including adding or removing to-dos.
+
+### [#](#how-to-use-plan-mode)How to use Plan Mode
+
+*   Start planning by pressing Shift + Tab in the agent input.
+
+*   Answer clarifying questions on your requirements for the best output quality.
+
+*   Review or edit the detailed plan, then build directly from your plan when ready.
+
+*   Optionally, save the plan as a Markdown file in your repository for future reference.
+
+Cursor will also suggest plan mode automatically when you describe complex tasks.
+
+Try Plan Mode in our latest release.
+
+## Related posts
+
+[Oct 31, 2025·Product
+
+Introducing Cursor for Enterprise
+
+![](/marketing-static/_next/image?url=https%3A%2F%2Fptht05hbb1ssoooe.public.blob.vercel-storage.com%2Fassets%2Favatars%2Favatar-circle-2d-dark.png&w=48&q=70)![](/marketing-static/_next/image?url=https%3A%2F%2Fptht05hbb1ssoooe.public.blob.vercel-storage.com%2Fassets%2Favatars%2Favatar-circle-2d-white.png&w=48&q=70)
+
+Cursor Team · 5 min read](/blog/enterprise)
+
+[Oct 29, 2025·Product
+
+Introducing Cursor 2.0 and Composer
+
+![](/marketing-static/_next/image?url=https%3A%2F%2Fptht05hbb1ssoooe.public.blob.vercel-storage.com%2Fassets%2Favatars%2Favatar-circle-2d-dark.png&w=48&q=70)![](/marketing-static/_next/image?url=https%3A%2F%2Fptht05hbb1ssoooe.public.blob.vercel-storage.com%2Fassets%2Favatars%2Favatar-circle-2d-white.png&w=48&q=70)
+
+Cursor Team · 3 min read](/blog/2-0)
+
+[Jan 9, 2026·Product
+
+Best practices for coding with agents
+
+![](/marketing-static/_next/image?url=https%3A%2F%2Fptht05hbb1ssoooe.public.blob.vercel-storage.com%2Fassets%2Favatars%2Flee-robinson.jpeg&w=48&q=70)
+
+Lee Robinson · 17 min read](/blog/agent-best-practices)
+
+[View more posts →](/blog)
+
+[Blog](/blog) / [product](/blog/topic/product)
+
+![Plan Mode in Cursor](/marketing-static/_next/image?url=https%3A%2F%2Fptht05hbb1ssoooe.public.blob.vercel-storage.com%2Fassets%2Fblog%2Fplan-mode-0.png&w=1920&q=70)
+
+Cursor can now create plans, research your codebase, and run longer agents.
+
+Plan mode gives the model new tools to create and update plans, as well as an interactive editor to modify plans inline. Most new features at Cursor now begin with Agent writing a plan. We’ve seen this significantly improve the code generated.
+
+When you prompt Agent to create a plan, Cursor researches your codebase to find relevant files, review docs, and ask clarifying questions. When you’re happy with the plan, it creates a Markdown file with file paths and code references. You can edit the plan directly, including adding or removing to-dos.
+
+### [#](#how-to-use-plan-mode)How to use Plan Mode
+
+*   Start planning by pressing Shift + Tab in the agent input.
+
+*   Answer clarifying questions on your requirements for the best output quality.
+
+*   Review or edit the detailed plan, then build directly from your plan when ready.
+
+*   Optionally, save the plan as a Markdown file in your repository for future reference.
+
+Cursor will also suggest plan mode automatically when you describe complex tasks.
+
+Try Plan Mode in our latest release.
+
+## Related posts
+
+[Oct 31, 2025·Product
+
+Introducing Cursor for Enterprise
+
+![](/marketing-static/_next/image?url=https%3A%2F%2Fptht05hbb1ssoooe.public.blob.vercel-storage.com%2Fassets%2Favatars%2Favatar-circle-2d-dark.png&w=48&q=70)![](/marketing-static/_next/image?url=https%3A%2F%2Fptht05hbb1ssoooe.public.blob.vercel-storage.com%2Fassets%2Favatars%2Favatar-circle-2d-white.png&w=48&q=70)
+
+Cursor Team · 5 min read](/blog/enterprise)
+
+[Oct 29, 2025·Product
+
+Introducing Cursor 2.0 and Composer
+
+![](/marketing-static/_next/image?url=https%3A%2F%2Fptht05hbb1ssoooe.public.blob.vercel-storage.com%2Fassets%2Favatars%2Favatar-circle-2d-dark.png&w=48&q=70)![](/marketing-static/_next/image?url=https%3A%2F%2Fptht05hbb1ssoooe.public.blob.vercel-storage.com%2Fassets%2Favatars%2Favatar-circle-2d-white.png&w=48&q=70)
+
+Cursor Team · 3 min read](/blog/2-0)
+
+[Jan 9, 2026·Product
+
+Best practices for coding with agents
+
+![](/marketing-static/_next/image?url=https%3A%2F%2Fptht05hbb1ssoooe.public.blob.vercel-storage.com%2Fassets%2Favatars%2Flee-robinson.jpeg&w=48&q=70)
+
+Lee Robinson · 17 min read](/blog/agent-best-practices)
+
+[View more posts →](/blog)

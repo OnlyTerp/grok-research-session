@@ -1,0 +1,478 @@
+capture_source: goal_session_updates.jsonl
+session_id: 019ef0e7-e353-7822-89e0-412709416638
+tool: WebFetch
+tool_call_id: call-8b792faa-2796-4e00-a7be-488bf53116fe-composer_call_eExR5
+tool_arguments: {"url": "https://news.ycombinator.com/item?id=48139115"}
+call_timestamp: 1782159374
+result_timestamp: 1782159375
+first_synthesis_timestamp: 1782159521
+bytes: 18868
+---
+# Content from https://news.ycombinator.com/item?id=48139115
+
+Grok Build | Hacker News
+
+[![](y18.svg)](https://news.ycombinator.com)
+
+**[Hacker News](news)**[new](newest) | [past](front) | [comments](newcomments) | [ask](ask) | [show](show) | [jobs](jobs) | [submit](submit)
+
+[login](login?goto=item%3Fid%3D48139115)
+
+[](vote?id=48139115&how=up&goto=item%3Fid%3D48139115)
+
+[Grok Build](https://x.ai/news/grok-build-cli) ([x.ai](from?site=x.ai))
+
+100 points by [meetpateltech](user?id=meetpateltech) [39 days ago](item?id=48139115) | [hide](hide?id=48139115&goto=item%3Fid%3D48139115) | [past](https://hn.algolia.com/?query=Grok%20Build&type=story&dateRange=all&sort=byDate&storyText=false&prefix&page=0) | [favorite](fave?id=48139115&auth=8c9b8a800d71cbc51ebadba3e6f719106a3ad1bf) | [36 comments](item?id=48139115)
+
+  
+
+![](s.gif)
+
+[](vote?id=48139371&how=up&goto=item%3Fid%3D48139115)
+
+[2001zhaozhao](user?id=2001zhaozhao) [39 days ago](item?id=48139371) | [next](#48141280) [\[–\]](javascript:void\(0\))
+
+  
+
+\> Headless mode (-p) allows easily running agents inside scripts and automations. The CLI also provides full ACP support to build your own bots and agent orchestration apps.
+
+Good, they are explicitly supporting automation similar to OpenAI.
+
+![](s.gif)
+
+[](vote?id=48140206&how=up&goto=item%3Fid%3D48139115)
+
+[SwellJoe](user?id=SwellJoe) [38 days ago](item?id=48140206) | [parent](#48139371) | [next](#48141498) [\[–\]](javascript:void\(0\))
+
+  
+
+Pretty sure they all do.
+
+$ claude -h
+
+Usage: claude \[options\] \[command\] \[prompt\]
+
+Claude Code - starts an interactive session by default, use -p/--print for non-interactive output
+
+$ gemini -h
+
+Usage: gemini \[options\] \[command\]
+
+Gemini CLI - Defaults to interactive mode. Use -p/--prompt for non-interactive (headless) mode.
+
+$ copilot -h
+
+Usage: copilot \[options\] \[command\]
+
+GitHub Copilot CLI - An AI-powered coding assistant.
+
+Start an interactive session to chat with Copilot, or use -p/--prompt for non-interactive scripting.
+
+![](s.gif)
+
+[](vote?id=48140499&how=up&goto=item%3Fid%3D48139115)
+
+[Donald](user?id=Donald) [38 days ago](item?id=48140499) | [root](#48139371) | [parent](#48140206) | [next](#48141498) [\[–\]](javascript:void\(0\))
+
+  
+
+Anthropic has made a recent change that Claude Code will only bill extra usage for the print / non-interactive mode:
+
+\> *Starting June 15, 2026, Claude Agent SDK and claude -p usage no longer counts toward your Claude plan’s usage limits. Your subscription usage limits stay the same and stay reserved for interactive use of Claude Code, Claude Cowork, and Claude.*
+
+![](s.gif)
+
+[](vote?id=48141427&how=up&goto=item%3Fid%3D48139115)
+
+[lostmsu](user?id=lostmsu) [38 days ago](item?id=48141427) | [root](#48139371) | [parent](#48140499) | [next](#48140689) [\[–\]](javascript:void\(0\))
+
+  
+
+What does "no longer counts" mean here? Is it going to be free on automated runs? Is it going to be banned entirely on sub and will work with credits only?
+
+![](s.gif)
+
+[](vote?id=48141528&how=up&goto=item%3Fid%3D48139115)
+
+[SwellJoe](user?id=SwellJoe) [38 days ago](item?id=48141528) | [root](#48139371) | [parent](#48141427) | [next](#48140689) [\[–\]](javascript:void\(0\))
+
+  
+
+Counted separately, and you get an included amount of tokens equal to the cost of your subscription.
+
+[https://support.claude.com/en/articles/15036540-use-the-clau...](https://support.claude.com/en/articles/15036540-use-the-claude-agent-sdk-with-your-claude-plan)
+
+![](s.gif)
+
+[](vote?id=48140689&how=up&goto=item%3Fid%3D48139115)
+
+[SwellJoe](user?id=SwellJoe) [38 days ago](item?id=48140689) | [root](#48139371) | [parent](#48140499) | [prev](#48141427) | [next](#48141498) [\[–\]](javascript:void\(0\))
+
+  
+
+Billing is a separate issue from whether automation is explicitly supported.
+
+![](s.gif)
+
+[](vote?id=48140771&how=up&goto=item%3Fid%3D48139115)
+
+[addedGone](user?id=addedGone) [38 days ago](item?id=48140771) | [root](#48139371) | [parent](#48140689) | [next](#48141498) [\[–\]](javascript:void\(0\))
+
+  
+
+Not in this context, obviously "Claude" support automation as it's also available since always via API, it's obvious poster was talking about subsidized usage.
+
+![](s.gif)
+
+[](vote?id=48141498&how=up&goto=item%3Fid%3D48139115)
+
+[skp1995](user?id=skp1995) [38 days ago](item?id=48141498) | [parent](#48139371) | [prev](#48140206) | [next](#48141280) [\[–\]](javascript:void\(0\))
+
+  
+
+yes! we wanted to make sure that the binary works in your editors or via \`-p\`, no point in standing guard to how you would want to use it.
+
+![](s.gif)
+
+[](vote?id=48141280&how=up&goto=item%3Fid%3D48139115)
+
+[ofek](user?id=ofek) [38 days ago](item?id=48141280) | [prev](#48139371) | [next](#48140078) [\[–\]](javascript:void\(0\))
+
+  
+
+I won't be able to fully test because the interactive prompt gates on the user having an advanced subscription (I already pay $40 a month) which for now doesn't seem to be worth it.
+
+However, the TUI as shown in a post \[0\] by one of their engineers is quite beautiful. For a moment I thought it was written in Python because it looks similar to Textual \[1\] but I inspected the binary for my platform \[2\] and it seems to be written in Rust. I guess Ratatui is quite customizable!
+
+The state of its Windows support is unclear to me. The Bash installer script \[3\] has a comment on top that says "Windows: run under Git for Windows / MSYS2 Bash (same curl | bash flow); WSL uses the Linux binary." I ran the binary normally in a Nushell session and didn't encounter any issue other than a start-up time that was slower than expected on the first run. Perhaps I would have seen issues had I gotten past the login step.
+
+\[0\]: [https://x.com/skcd42/status/2054993372662915183](https://x.com/skcd42/status/2054993372662915183)
+
+\[1\]: [https://github.com/Textualize/textual](https://github.com/Textualize/textual)
+
+\[2\]: [https://storage.googleapis.com/grok-build-public-artifacts/c...](https://storage.googleapis.com/grok-build-public-artifacts/cli/grok-0.1.210-windows-x86_64.exe)
+
+\[3\]: [https://x.ai/cli/install.sh](https://x.ai/cli/install.sh)
+
+![](s.gif)
+
+[](vote?id=48141486&how=up&goto=item%3Fid%3D48139115)
+
+[skp1995](user?id=skp1995) [38 days ago](item?id=48141486) | [parent](#48141280) | [next](#48143948) [\[–\]](javascript:void\(0\))
+
+  
+
+hey I am the engineer who worked on the TUI and harness and happy to answer your questions.
+
+We worked quite heavily on the TUI, its written in ratatui and we did try to go the extra mile to make sure that there won't be any regressions from moving to an alt-screen rendering. Lots and lots of small details to manage and get correct, we also tried to get vim keybindings correct while keeping it mouse friendly.
+
+![](s.gif)
+
+[](vote?id=48143963&how=up&goto=item%3Fid%3D48139115)
+
+[giancarlostoro](user?id=giancarlostoro) [38 days ago](item?id=48143963) | [root](#48141280) | [parent](#48141486) | [next](#48143948) [\[–\]](javascript:void\(0\))
+
+  
+
+Was there a reason you guys went with ratatui? I made one myself but I went with iocraft instead, it has its quirks that are annoying me, might just have Claude reimplement it in ratatui to see the difference...
+
+![](s.gif)
+
+[](vote?id=48143948&how=up&goto=item%3Fid%3D48139115)
+
+[giancarlostoro](user?id=giancarlostoro) [38 days ago](item?id=48143948) | [parent](#48141280) | [prev](#48141486) | [next](#48141561) [\[–\]](javascript:void\(0\))
+
+  
+
+\> (I already pay $40 a month)
+
+As someone who has had Grok since it came out, I used to pay $40 a month, but then I started using Claude more often, I'm on Claude Max since I use it more than the lower subscription can handle. I at one point built my own Grok compatible coding harness, but Grok was underwhelming for me, I have not had the time or energy to burn $$$ just to make Grok work better with my harness, but I'm not spending $300 a month on something my employer will never approve me to use, I'd love to use it but the pricing will have to come drastically down.
+
+![](s.gif)
+
+[](vote?id=48141561&how=up&goto=item%3Fid%3D48139115)
+
+[skp1995](user?id=skp1995) [38 days ago](item?id=48141561) | [parent](#48141280) | [prev](#48143948) | [next](#48140078) [\[–\]](javascript:void\(0\))
+
+  
+
+\> The state of its Windows support is unclear to me.
+
+yeah this one is a bit weird, you can run the linux binary using WSL and that should work. We have a window flavor build but its not as heavily tested yet (we are figuring out a better testing flow for windows)
+
+![](s.gif)
+
+[](vote?id=48141807&how=up&goto=item%3Fid%3D48139115)
+
+[ofek](user?id=ofek) [38 days ago](item?id=48141807) | [root](#48141280) | [parent](#48141561) | [next](#48144023) [\[–\]](javascript:void\(0\))
+
+  
+
+Thanks for the clarification! I'm sure your team is already aware but Windows users perceive support as native binaries (no WSL) that can run in a normal environment (no Git Bash or Linux utilities).
+
+![](s.gif)
+
+[](vote?id=48143970&how=up&goto=item%3Fid%3D48139115)
+
+[giancarlostoro](user?id=giancarlostoro) [38 days ago](item?id=48143970) | [root](#48141280) | [parent](#48141807) | [next](#48144023) [\[–\]](javascript:void\(0\))
+
+  
+
+Agree, I use Windows, Mac and Linux, and work with .NET developers, so primarily Windows devs, some aren't even aware what WSL is.
+
+![](s.gif)
+
+[](vote?id=48144023&how=up&goto=item%3Fid%3D48139115)
+
+[giancarlostoro](user?id=giancarlostoro) [38 days ago](item?id=48144023) | [root](#48141280) | [parent](#48141561) | [prev](#48141807) | [next](#48140078) [\[–\]](javascript:void\(0\))
+
+  
+
+Wait, why is Windows different? I'm pretty sure you could get it to compile and run consistently across all three platforms, or is this an issue with the TUI?
+
+![](s.gif)
+
+[](vote?id=48140078&how=up&goto=item%3Fid%3D48139115)
+
+[everfrustrated](user?id=everfrustrated) [38 days ago](item?id=48140078) | [prev](#48141280) | [next](#48139565) [\[–\]](javascript:void\(0\))
+
+  
+
+X Article from a xAi dev with some additional details on Grok Build [https://x.com/i/status/2054993372662915183](https://x.com/i/status/2054993372662915183)
+
+![](s.gif)
+
+[](vote?id=48139565&how=up&goto=item%3Fid%3D48139115)
+
+[everfrustrated](user?id=everfrustrated) [38 days ago](item?id=48139565) | [prev](#48140078) | [next](#48276144) [\[–\]](javascript:void\(0\))
+
+  
+
+SuperGrok Heavy subscription appears (for me) to be on sale at the moment - $99/mth for 6 months then $300/mth.
+
+![](s.gif)
+
+[](vote?id=48276144&how=up&goto=item%3Fid%3D48139115)
+
+[kgwgk](user?id=kgwgk) [27 days ago](item?id=48276144) | [prev](#48139565) | [next](#48139665) [\[–\]](javascript:void\(0\))
+
+  
+
+\> Available now to all SuperGrok and X Premium Plus subscribers.
+
+![](s.gif)
+
+[](vote?id=48139665&how=up&goto=item%3Fid%3D48139115)
+
+[rvz](user?id=rvz) [38 days ago](item?id=48139665) | [prev](#48276144) | [next](#48139362) [\[–\]](javascript:void\(0\))
+
+  
+
+Only $300 a month. (Or $3,000 a year.)
+
+The xAI casino wants all of your money even if you don't use it for a month.
+
+![](s.gif)
+
+[](vote?id=48140019&how=up&goto=item%3Fid%3D48139115)
+
+[bonesss](user?id=bonesss) [38 days ago](item?id=48140019) | [parent](#48139665) | [next](#48139362) [\[–\]](javascript:void\(0\))
+
+  
+
+I’m still flabbergasted by the business model, it reminds me of SEO services: if you were any kind of good at it there is infinite money to be made partnering with established players and selling goods and services directly.
+
+Selling tools to others when you’re not using them yourself says everything about the underlying utility of what’s being sold.
+
+xAI could be threatening Office, or Windows, or Unreal Engine, Chromium, SalesForce, global ERP, tax software for citizens and governments alike, or Apples manufacturing prowess… but, no, forget that lame nonsense, let’s see what I have in *my* wallet! Maybe I can give some to Elon to cover up his sketchy business practices. Sounds logical.
+
+![](s.gif)
+
+[](vote?id=48141576&how=up&goto=item%3Fid%3D48139115)
+
+[MagicMoonlight](user?id=MagicMoonlight) [38 days ago](item?id=48141576) | [root](#48139665) | [parent](#48140019) | [next](#48139362) [\[–\]](javascript:void\(0\))
+
+  
+
+I mean you could say that about anything.
+
+“If you’re so good at building salesforce, why don’t you simply sell paper yourself?”
+
+![](s.gif)
+
+[](vote?id=48142008&how=up&goto=item%3Fid%3D48139115)
+
+[bonesss](user?id=bonesss) [38 days ago](item?id=48142008) | [root](#48139665) | [parent](#48141576) | [next](#48139362) [\[–\]](javascript:void\(0\))
+
+  
+
+No, you really can’t.
+
+Centrally, I mentioned partnering, and specifically in the context of tools being sold for less value than the profit they could make. That is is fundamentally different to the retort provided (direct sales of paper).
+
+The issue applies quite specifically to tooling and services (ie SEO and super coding LLMs), that improve customer profitability through capabilities. If the tool/service utility is so high and profitable then selling it to third parties is far less profitable than leveraging the tool/service fully as an owner.
+
+If someone is *selling* you something for less money than they can make *using* that thing, the business model is suspicious. Scams, normally.
+
+What unique process advantage does SalesForce sell that applies to paper production and end customer delivery? None. Cutting edge coding agents with cheap tokens for any IT work? Massive, in theory…
+
+If SalesForce is selling a subscription tool that makes my paper cost 30% less, why not partner with the #3 largest paper supplier, fully integrate and give them a 30%+ exclusive competitive advantage, making SalesForce a part owner of the #1 paper company? … one of those business models relies on scale, credit cards, and customer loyalty for small money, the other only on effective technology for *huge* money (and far less risk).
+
+This is not a new point, there are well regarded essays breaking it down. “*I’m so rich I want to sell you info about how to sell instead of more money for less work.*”, is a scammy pitch present in MLMs, bad Real Estate courses, Get Rich courses, etc.
+
+![](s.gif)
+
+[](vote?id=48139362&how=up&goto=item%3Fid%3D48139115)
+
+[frb](user?id=frb) [39 days ago](item?id=48139362) | [prev](#48139665) | [next](#48150948) [\[–\]](javascript:void\(0\))
+
+  
+
+Only for SuperGrok Heavy ($300/m) subscribers. Too bad..
+
+Would have been curious to compare against the other competitors
+
+![](s.gif)
+
+[](vote?id=48139936&how=up&goto=item%3Fid%3D48139115)
+
+[guywithahat](user?id=guywithahat) [38 days ago](item?id=48139936) | [parent](#48139362) | [next](#48150948) [\[–\]](javascript:void\(0\))
+
+  
+
+To be fair it's in early beta, I wouldn't be surprised if they open it up to more people as time goes on. The real question is if they'll open source it or follow Anthropic's lead in keeping everything closed-source
+
+![](s.gif)
+
+[](vote?id=48140100&how=up&goto=item%3Fid%3D48139115)
+
+[frb](user?id=frb) [38 days ago](item?id=48140100) | [root](#48139362) | [parent](#48139936) | [next](#48150948) [\[–\]](javascript:void\(0\))
+
+  
+
+You could be right.
+
+Just feels like they are a bit late to the CLI coding agent party. So why not get in with a bang and open up to a broader audience?
+
+All other agents have a lower barrier to try and play around.
+
+Curious too about open sourcing. But they seem to be doing -p mode and ACP right already. Anthropic is opening a lot of opportunities for competitors right now
+
+![](s.gif)
+
+[](vote?id=48150948&how=up&goto=item%3Fid%3D48139115)
+
+[giancarlostoro](user?id=giancarlostoro) [38 days ago](item?id=48150948) | [prev](#48139362) | [next](#48139638) [\[–\]](javascript:void\(0\))
+
+  
+
+Wonder if they will ever add this to Zed. Zed seems to be the best way to use any of the coding agents, its not a perfect editor but definitely the best one I have used for AI to date.
+
+![](s.gif)
+
+[](vote?id=48238345&how=up&goto=item%3Fid%3D48139115)
+
+[herewegohawks](user?id=herewegohawks) [31 days ago](item?id=48238345) | [parent](#48150948) | [next](#48139638) [\[–\]](javascript:void\(0\))
+
+  
+
+Agreed, but I'm attached to OpenCode which has some issues with ACP
+
+![](s.gif)
+
+[](vote?id=48139638&how=up&goto=item%3Fid%3D48139115)
+
+[chabes](user?id=chabes) [38 days ago](item?id=48139638) | [prev](#48150948) | [next](#48144875) [\[–\]](javascript:void\(0\))
+
+  
+
+Does the space need another biased tool? Does this offer anything unique?
+
+I’m good with the open source options.
+
+OpenCode and Pi agent are much more customizable than the proprietary options will ever be.
+
+![](s.gif)
+
+[](vote?id=48144875&how=up&goto=item%3Fid%3D48139115)
+
+[Frannky](user?id=Frannky) [38 days ago](item?id=48144875) | [prev](#48139638) | [next](#48140474) [\[–\]](javascript:void\(0\))
+
+  
+
+For those using it instead of the other options, I am curious why? Is it better along some dimension? Is it cheaper? Is it faster?
+
+![](s.gif)
+
+[](vote?id=48140474&how=up&goto=item%3Fid%3D48139115)
+
+[Alifatisk](user?id=Alifatisk) [38 days ago](item?id=48140474) | [prev](#48144875) | [next](#48141018) [\[–\]](javascript:void\(0\))
+
+  
+
+Whats the use case for Grok over the others? Close integration with Twitter is the only thing I can come up with.
+
+![](s.gif)
+
+[](vote?id=48141773&how=up&goto=item%3Fid%3D48139115)
+
+[timmytokyo](user?id=timmytokyo) [38 days ago](item?id=48141773) | [parent](#48140474) | [next](#48141018) [\[–\]](javascript:void\(0\))
+
+  
+
+I guess it's cool if you like "white genocide" sprinkled randomly throughout the output.
+
+![](s.gif)
+
+[](vote?id=48141018&how=up&goto=item%3Fid%3D48139115)
+
+[ActionHank](user?id=ActionHank) [38 days ago](item?id=48141018) | [prev](#48140474) | [next](#48139503) [\[–\]](javascript:void\(0\))
+
+  
+
+Ok, but why though?
+
+More expensive, as good or worse at the job, and it runs in the terminal, because that's cool?
+
+![](s.gif)
+
+[](vote?id=48139412&how=up&goto=item%3Fid%3D48139115)
+
+[bastardoperator](user?id=bastardoperator) [38 days ago](item?id=48139412) | [prev](#48139503) | [next](#48139438) [\[–\]](javascript:void\(0\))
+
+  
+
+LOL
+
+![](s.gif)
+
+[](vote?id=48139438&how=up&goto=item%3Fid%3D48139115)
+
+[baalimago](user?id=baalimago) [38 days ago](item?id=48139438) | [prev](#48139412) [\[–\]](javascript:void\(0\))
+
+  
+
+Do we really need another one of these..?
+
+![](s.gif)
+
+[](vote?id=48140068&how=up&goto=item%3Fid%3D48139115)
+
+[threecheese](user?id=threecheese) [38 days ago](item?id=48140068) | [parent](#48139438) [\[–\]](javascript:void\(0\))
+
+  
+
+If you prefer your sycophants be national socialists, this is for you!
+
+  
+  
+ 
+
+![](s.gif)
+
+  
+
+[Guidelines](newsguidelines.html) | [FAQ](newsfaq.html) | [Lists](lists) | [API](https://github.com/HackerNews/API) | [Security](security.html) | [Legal](https://www.ycombinator.com/legal/) | [Apply to YC](https://www.ycombinator.com/apply/) | [Contact](mailto:hn@ycombinator.com)  
+  
+
+Search:

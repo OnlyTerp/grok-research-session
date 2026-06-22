@@ -1,0 +1,145 @@
+{
+  "wave": 1,
+  "source": "updates.jsonl",
+  "first_synthesis_timestamp": 1782159521,
+  "parallel_batch_max": 7,
+  "count": 17,
+  "transcripts": [
+    {
+      "file": "01-WebSearch-sercallrxEbq.txt",
+      "tool": "WebSearch",
+      "tool_call_id": "call-58d82445-d154-4ddb-ac4a-37ab8247dfe8-composer_call_rxEbq",
+      "call_timestamp": 1782158367,
+      "result_timestamp": 1782158510,
+      "bytes": 988
+    },
+    {
+      "file": "02-WebSearch-sercall05JAz.txt",
+      "tool": "WebSearch",
+      "tool_call_id": "call-58d82445-d154-4ddb-ac4a-37ab8247dfe8-composer_call_05JAz",
+      "call_timestamp": 1782158367,
+      "result_timestamp": 1782158614,
+      "bytes": 1020
+    },
+    {
+      "file": "03-WebSearch-sercallBT47N.txt",
+      "tool": "WebSearch",
+      "tool_call_id": "call-58d82445-d154-4ddb-ac4a-37ab8247dfe8-composer_call_BT47N",
+      "call_timestamp": 1782158367,
+      "result_timestamp": 1782158615,
+      "bytes": 665
+    },
+    {
+      "file": "04-WebFetch-sercallen4rC.txt",
+      "tool": "WebFetch",
+      "tool_call_id": "call-0367e56f-f0d5-4a13-82cb-c61ca4488ed4-composer_call_en4rC",
+      "call_timestamp": 1782158619,
+      "result_timestamp": 1782158619,
+      "bytes": 5679
+    },
+    {
+      "file": "05-WebFetch-sercallyomfZ.txt",
+      "tool": "WebFetch",
+      "tool_call_id": "call-0367e56f-f0d5-4a13-82cb-c61ca4488ed4-composer_call_yomfZ",
+      "call_timestamp": 1782158619,
+      "result_timestamp": 1782158619,
+      "bytes": 21929
+    },
+    {
+      "file": "06-WebFetch-sercalleExR5.txt",
+      "tool": "WebFetch",
+      "tool_call_id": "call-0367e56f-f0d5-4a13-82cb-c61ca4488ed4-composer_call_eExR5",
+      "call_timestamp": 1782158619,
+      "result_timestamp": 1782158619,
+      "bytes": 9838
+    },
+    {
+      "file": "07-WebFetch-sercallewpBL.txt",
+      "tool": "WebFetch",
+      "tool_call_id": "call-0367e56f-f0d5-4a13-82cb-c61ca4488ed4-composer_call_ewpBL",
+      "call_timestamp": 1782158619,
+      "result_timestamp": 1782158619,
+      "bytes": 4329
+    },
+    {
+      "file": "08-WebFetch-sercallKiIgl.txt",
+      "tool": "WebFetch",
+      "tool_call_id": "call-0367e56f-f0d5-4a13-82cb-c61ca4488ed4-composer_call_KiIgl",
+      "call_timestamp": 1782158619,
+      "result_timestamp": 1782158620,
+      "bytes": 24102
+    },
+    {
+      "file": "09-WebFetch-sercallBs04a.txt",
+      "tool": "WebFetch",
+      "tool_call_id": "call-0367e56f-f0d5-4a13-82cb-c61ca4488ed4-composer_call_Bs04a",
+      "call_timestamp": 1782158619,
+      "result_timestamp": 1782158621,
+      "bytes": 2498
+    },
+    {
+      "file": "10-WebFetch-sercallvLZyG.txt",
+      "tool": "WebFetch",
+      "tool_call_id": "call-0367e56f-f0d5-4a13-82cb-c61ca4488ed4-composer_call_vLZyG",
+      "call_timestamp": 1782158619,
+      "result_timestamp": 1782158715,
+      "bytes": 24101
+    },
+    {
+      "file": "11-WebFetch-sercallewpBL.txt",
+      "tool": "WebFetch",
+      "tool_call_id": "call-8b792faa-2796-4e00-a7be-488bf53116fe-composer_call_ewpBL",
+      "call_timestamp": 1782159374,
+      "result_timestamp": 1782159375,
+      "bytes": 24099
+    },
+    {
+      "file": "12-WebFetch-sercallKiIgl.txt",
+      "tool": "WebFetch",
+      "tool_call_id": "call-8b792faa-2796-4e00-a7be-488bf53116fe-composer_call_KiIgl",
+      "call_timestamp": 1782159374,
+      "result_timestamp": 1782159375,
+      "bytes": 5085
+    },
+    {
+      "file": "13-WebFetch-sercalleExR5.txt",
+      "tool": "WebFetch",
+      "tool_call_id": "call-8b792faa-2796-4e00-a7be-488bf53116fe-composer_call_eExR5",
+      "call_timestamp": 1782159374,
+      "result_timestamp": 1782159375,
+      "bytes": 18868
+    },
+    {
+      "file": "14-WebFetch-sercallyomfZ.txt",
+      "tool": "WebFetch",
+      "tool_call_id": "call-8b792faa-2796-4e00-a7be-488bf53116fe-composer_call_yomfZ",
+      "call_timestamp": 1782159374,
+      "result_timestamp": 1782159435,
+      "bytes": 3483
+    },
+    {
+      "file": "15-WebSearch-sercallBT47N.txt",
+      "tool": "WebSearch",
+      "tool_call_id": "call-8b792faa-2796-4e00-a7be-488bf53116fe-composer_call_BT47N",
+      "call_timestamp": 1782159374,
+      "result_timestamp": 1782159472,
+      "bytes": 335
+    },
+    {
+      "file": "16-WebSearch-sercall8K43w.txt",
+      "tool": "WebSearch",
+      "tool_call_id": "call-8b792faa-2796-4e00-a7be-488bf53116fe-composer_call_8K43w",
+      "call_timestamp": 1782159374,
+      "result_timestamp": 1782159487,
+      "bytes": 689
+    },
+    {
+      "file": "17-WebSearch-sercall2SyOr.txt",
+      "tool": "WebSearch",
+      "tool_call_id": "call-8b792faa-2796-4e00-a7be-488bf53116fe-composer_call_2SyOr",
+      "call_timestamp": 1782159374,
+      "result_timestamp": 1782159489,
+      "bytes": 714
+    }
+  ]
+}

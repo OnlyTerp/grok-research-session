@@ -1,0 +1,300 @@
+capture_source: goal_session_updates.jsonl
+session_id: 019ef0e7-e353-7822-89e0-412709416638
+tool: WebFetch
+tool_call_id: call-0367e56f-f0d5-4a13-82cb-c61ca4488ed4-composer_call_en4rC
+tool_arguments: {"url": "https://x.ai/cli"}
+call_timestamp: 1782158619
+result_timestamp: 1782158619
+first_synthesis_timestamp: 1782159521
+bytes: 5679
+---
+# Content from https://x.ai/cli
+
+Grok Build Beta | xAI
+
+Grok Build
+
+Beta
+
+# Bring Grok into  
+your terminal.
+
+A powerful new coding agent and CLI for complex coding work.
+
+`$ curl -fsSL https://x.ai/cli/install.sh | bash`
+
+Available to SuperGrok and X Premium+
+
+[Read Docs](https://docs.x.ai/build/overview) [Changelog](/build/changelog) 
+
+### Skills
+
+Grok Build adapts to your workflows and preferences with skills.
+
+*   AGENTS.md, plugins, hooks, and MCP servers all work out of the box
+*   Auto-invoked when a task matches, or called by name
+*   Capture any session as a new skill with /skillify
+
+projects/main jasong/folder
+
+||
+
+❯
+
+grok-build · ask
+
+### Plan
+
+The plan viewer makes it easy to architect complex projects.
+
+*   Start in plan mode for complex tasks — every edit is blocked until you approve
+*   Approve the plan, comment on individual steps, or rewrite it entirely
+*   Every approved change shows up as a clean diff
+
+projects/main jasong/folder
+
+||
+
+❯Migrate auth from sessions to JWT with token rotation.
+
+◆Thought for 3.4s
+
+────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────plan.md────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────×
+
+1Bottom Line
+
+2Swap legacy sessions for JWT + rotation, behind a flag with 7d compat.
+
+3Approach
+
+4• Add jwtVerify helper in src/lib/jwt.ts.
+
+5• Add /auth/refresh with rotating refresh tokens.
+
+6• Replace session check in authMiddleware.
+
+\[a\]pprove\[c\]omment\[q\]uit plan
+
+❯
+
+grok-build · ask
+
+### Plugins
+
+Marketplaces help you share capabilities across your team.
+
+*   Bundle skills, agents, hooks, and MCP servers behind one install
+*   Marketplace install, or self-host from any git repo
+*   Linear, Sentry, Postgres, browsers — anything with MCP
+
+projects/main jasong/folder
+
+||
+
+❯install browser-review and open its skills
+
+HooksPluginsMarketplaceSkillsMCP Servers
+
+/ to searchWorkspace ⌄
+
+›team-tool(project)
+
+\[install\]
+
+›browser-review v0.8.2(workspace)
+
+\[install\]
+
+›github-flow v2.1.0(workspace)
+
+\[install\]
+
+›xai-code-review v1.0.0(workspace)
+
+\[installed\]
+
+❯
+
+grok-build · ask
+
+### Q&A
+
+Grok Build asks the right questions to nail the details.
+
+*   Ambiguous tasks get a quick multiple-choice
+*   Pick a design direction, a framework, or a schema
+*   Answers flow straight into the plan
+
+projects/main jasong/folder
+
+||
+
+Waiting on answers for 3 questions\[turn: 7.1s, ↓53.6k\] \[×\]
+
+1
+
+Minimal & terminal-nativeClean, keyboard-first, no excess chrome
+
+2
+
+Bold & expressiveStrong visuals, gradients, animations
+
+3
+
+Developer-focusedCode-first aesthetic, technical precision
+
+4
+
+OtherDefine custom principles
+
+zType your answer here
+
+\[1/3\]↑/↓navigate·←/→question
+
+\[1/3\]
+
+Enter:select
+
+❯
+
+grok-build · ask
+
+### Subagents
+
+Subagents run in parallel to research, build, and review at once.
+
+*   Grok Build delegates larger tasks to specialized subagents
+*   Each child runs in parallel with its own context window
+*   Deep worktree support — launch subagents in their own worktrees
+
+projects/main jasong/folder
+
+||
+
+explore
+
+Explore checkout flowexplore · grok-build
+
+explore
+
+Explore infra and CIexplore · grok-build
+
+explore
+
+Explore shared Go librariesexplore · grok-build
+
+explore
+
+Explore order servicesexplore · grok-build
+
+explore
+
+Explore fulfillment jobsexplore · grok-build
+
+explore
+
+Explore pricing engineexplore · grok-build
+
+❯find the source of the p99 latency regression
+
+❯
+
+grok-build · ask
+
+projects/main jasong/folder
+
+| 8.45%|
+
+❯
+
+grok-build · ask
+
+## Try it in your terminal
+
+One command to install. Works with any codebase, any language, right now.
+
+`$ curl -fsSL https://x.ai/cli/install.sh | bash`
+
+## Everything you need to ship
+
+One tool for the entire development workflow — plan, build, test, and deploy.
+
+Plan mode
+
+Propose a structured approach before writing code
+
+Subagents
+
+Spawn parallel agents for testing and research
+
+Skills
+
+Turn workflows into reusable slash commands
+
+Hooks
+
+Run scripts on file edits and tool calls
+
+MCP servers
+
+Connect to Linear, Sentry, Grafana, and more
+
+AGENTS.md
+
+Set conventions and rules per directory
+
+Memory
+
+Persist decisions and context across sessions
+
+Code search
+
+Grep and navigate large codebases fast
+
+Multi-file edits
+
+Refactor across files with search-and-replace
+
+Git integration
+
+Stage, commit, push, and manage branches
+
+Deep reasoning
+
+Step-by-step thinking for hard problems
+
+Web search
+
+Look up docs and packages from the terminal
+
+Terminal execution
+
+Run builds and tests with live streaming
+
+Headless mode
+
+Script Grok Build in CI/CD pipelines
+
+Code review
+
+Line-by-line feedback before opening a PR
+
+Sandboxed execution
+
+Run untrusted code in isolated environments
+
+Background tasks
+
+Monitor long-running builds and processes
+
+Theming
+
+Customize colors, fonts, and appearance
+
+## Bring Grok into your terminal
+
+Install now and start building with the early beta of Grok Build.
+
+`$ curl -fsSL https://x.ai/cli/install.sh | bash`
+
+[Read docs](https://docs.x.ai/build/overview)[Try now](https://grok.com/supergrok?referrer=grok-build)

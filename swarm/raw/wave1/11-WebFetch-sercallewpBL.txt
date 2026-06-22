@@ -1,0 +1,591 @@
+capture_source: goal_session_updates.jsonl
+session_id: 019ef0e7-e353-7822-89e0-412709416638
+tool: WebFetch
+tool_call_id: call-8b792faa-2796-4e00-a7be-488bf53116fe-composer_call_ewpBL
+tool_arguments: {"url": "https://x.ai/build/changelog"}
+call_timestamp: 1782159374
+result_timestamp: 1782159375
+first_synthesis_timestamp: 1782159521
+bytes: 24099
+---
+# Content from https://x.ai/build/changelog
+
+Grok Build Changelog | xAI
+
+Grok Build
+
+Beta
+
+# Changelog
+
+The latest fixes, features, and improvements shipping to Grok Build.
+
+Latest v0.2.52·Jun 15, 2026
+
+`$ curl -fsSL https://x.ai/cli/install.sh | bash`
+
+[Read Docs](https://docs.x.ai/build/overview) 
+
+June 15, 2026Jun 15, 2026
+
+v0.2.52
+
+## Grok Build 0.2.52
+
+*   Tool auto-approval state is now tracked end-to-end in server-side agent sessions
+*   ER diagrams now render as entity boxes with attributes and relationships in the TUI
+*   New "Respect manual folds" setting keeps hand-expanded blocks stable while content streams in
+*   `Ctrl+X` now stops running turns or closes sessions from inside the agent detail view
+*   Grok can now export usage metrics and events to your own OpenTelemetry collector when enabled
+*   WezTerm users now receive guidance when `Shift+Enter` fails because kitty keyboard protocol is disabled
+*   Long-running sessions now tell the model when the local calendar date changes past midnight
+*   Agent Dashboard now works without leader mode and shows local idle sessions from disk
+*   Fixed oversized session replay logs that prevented large sessions from loading
+*   MCP server connections no longer flood reconnects on repeated stream errors
+*   Mermaid PNG export now handles quoted cardinalities in class diagrams and readable ER rows on dark theme
+*   Skill catalog no longer shows duplicate "Use when:" labels and check-work skill now prompts the model to read its instructions
+*   Compaction now rejects overly-short summaries that would discard real conversation state
+*   Background tasks no longer emit spurious failure messages when a session is resumed
+*   Fixed Windows path handling so external tools and model prompts receive clean paths without `\?\` prefixes
+*   Images and media no longer remain visible when switching from an agent view to the dashboard
+*   Clipboard paste (`Ctrl+V`) now works for images on pure Wayland sessions
+*   Modals such as `/sessions` no longer crash on narrow terminals
+*   `ptyctl resize` now correctly notifies the child process
+*   Concurrent updates to the same version no longer fail with permission or `EEXIST` errors
+*   Mermaid diagrams containing CJK or other non-Latin text now render correctly instead of tofu boxes
+*   `grok dashboard` now reliably opens the dashboard instead of silently falling through to a normal session
+*   Sessions no longer remain blocked forever after a transient model catalog outage during reconnect
+*   Cancel no longer leaves the interface stuck on "Cancelling…" after lost responses during reconnects
+*   Forked sessions now retain the parent’s full pre-compaction transcripts instead of only the compacted summary
+*   `web_fetch` errors on GitHub hosts now recommend using the `gh` CLI when internal access is blocked
+*   MCP server connections no longer hang when stdio servers emit undecodable lines
+*   `Ctrl+C` cancels now complete in under 50 ms instead of blocking for seconds
+*   Repeated varied edit failures on one file no longer trigger doom-loop warnings or terminations
+*   Compaction now reuses cached prompt prefix instead of full prefill
+*   Compaction summaries now use the concise trained prompt for non-cursor agents
+
+June 11, 2026Jun 11, 2026
+
+v0.2.51
+
+## Grok Build 0.2.51
+
+*   `grok mcp add` now accepts positional arguments (e.g. `grok mcp add filesystem -- npx ...`), supports `--scope project`, and adds `-e`/`-H` flags for env/headers
+*   Mermaid flowcharts now render subgraph blocks as titled frames with correct internal and cross-boundary edges
+*   Class diagrams in Mermaid now render as proper UML boxes with attributes, methods and inheritance arrows instead of raw source
+*   Permission prompts now accept a double-click on an option to submit it, matching the existing `Enter` and number-key shortcuts
+*   New `/code-review` slash command now ships with the CLI and is always available
+*   Plan mode exit reminders no longer appear after the model has already started implementing the plan
+*   Expanded thinking blocks in scrollback now remain expanded when the agent finishes them
+*   `grok update` no longer downloads the same binary twice when multiple updaters or leader checks run concurrently
+*   Background task IDs after `/compact` are now shown verbatim so the model can reference them correctly in later tool calls
+*   Typing `/` while scrollback is focused now focuses the prompt and opens the slash-command dropdown
+*   Dashboard empty state is now a single hint line; dispatch and peek placeholders appear only when unfocused
+*   Fixed memory leaks that could cause the CLI to use tens of gigabytes during long sessions with many tool calls
+*   Login on SSH or headless machines now tells you when the browser cannot be opened automatically and shows the URL to visit manually
+*   Fixed git clone failures on Windows when the CLI tries to clone marketplace plugins into `~/.grok`
+*   Large code blocks inside lists no longer cause multi-second UI stalls while streaming responses
+
+June 11, 2026Jun 11, 2026
+
+v0.2.50
+
+## Grok Build 0.2.50
+
+*   Mermaid flowcharts now render edge crossings clearly instead of fusing unrelated connections
+*   Sequence diagrams with activate, autonumber, par, and more now render instead of showing parse errors
+*   MCP servers menu and slash commands now work when starting `grok` outside a project directory
+*   `Ctrl+W` in the prompt now deletes whole words like bash instead of stopping at punctuation
+*   Login no longer quits when an authentication code contains the letter `q`
+
+June 11, 2026Jun 11, 2026
+
+v0.2.49
+
+## Grok Build 0.2.49
+
+*   Marketplace plugin listings now show skills, MCP servers, and commands when the catalog is published
+*   Mermaid flowcharts now render with fewer avoidable edge crossings
+*   `stateDiagram` mermaid blocks now render as Unicode diagrams instead of source fallback
+*   Skill reloads no longer corrupt active tool calls or produce duplicate results in the conversation
+*   `grok --resume` now correctly finds the real session instead of failing on empty image-only folders
+*   Pasted images and relative paths now use the correct directory when resuming a session created elsewhere
+*   Mermaid flowcharts now correctly render node groups, arrow endings, self-loops and line styles
+*   Fixed "unknown session id" errors that occurred after the leader process crashed or was killed
+*   Pasted images now survive interjections and queue edits instead of being dropped
+*   Managed MCP connectors (Slack, Linear, etc.) now appear correctly when using leader mode
+
+June 10, 2026Jun 10, 2026
+
+v0.2.47
+
+## Grok Build 0.2.47
+
+*   `stateDiagram` Mermaid blocks now render as diagrams instead of source fallback
+*   Pasted images now survive interjections and queue edits instead of being dropped
+*   Managed MCP connectors (Slack, Linear, etc.) now appear correctly when using leader mode
+
+June 10, 2026Jun 10, 2026
+
+v0.2.46
+
+## Grok Build 0.2.46
+
+*   Mermaid flowcharts now render with fewer avoidable edge crossings
+*   Fixed `grok --resume` failing on empty image-only session folders left by cross-directory pastes
+*   Fixed pasted images and relative paths using the wrong directory after cross-cwd resume
+*   Fixed Mermaid flowcharts that silently rendered wrong diagrams for `&` groups, circle/cross endings and self-loops
+*   Fixed zsh tab-completion for subcommands after the optional prompt argument was added
+*   Parallel tool calls on the same path now execute concurrently
+
+June 10, 2026Jun 10, 2026
+
+v0.2.45
+
+## Grok Build 0.2.45
+
+*   Mermaid diagrams now render to images when you click Open in a code block (on by default)
+*   Fixed rare conversation corruption when skills changed while a tool call was still running
+*   Fixed `grok --resume` failing on empty image-only session folders left by cross-directory pastes
+*   Fixed pasted images and relative paths using the wrong directory after resuming a session from another folder
+*   Welcome screen logo no longer renders as invalid characters on legacy Windows command prompts and PowerShell
+*   Fixed "unknown session id" errors that occurred after the leader process crashed or was killed
+
+June 10, 2026Jun 10, 2026
+
+v0.2.44
+
+## Grok Build 0.2.44
+
+*   `K`/`J` keys snap the viewport to the top of previous or next assistant responses
+*   `J`/`K` vim mode navigates between assistant responses in scrollback
+*   `sequenceDiagram` mermaid blocks render as Unicode lifeline diagrams instead of source fallback
+*   Interjecting while editing a queued prompt no longer strands the composer or blocks the queue
+*   Mid-turn interjections now appear as separate user messages instead of being appended to tool results
+*   Inference requests recover faster from silent engine stalls instead of waiting the full idle timeout
+
+June 9, 2026Jun 9, 2026
+
+v0.2.43
+
+## Grok Build 0.2.43
+
+*   `ask_user_question` tool can now be enabled in allowlists without requiring plan-mode tools
+*   `Shift+Tab` mode cycling works again in the agent view
+*   `Ctrl+C` now cancels a blocking `grok update` cleanly instead of leaving an orphaned download
+
+June 9, 2026Jun 9, 2026
+
+v0.2.42
+
+## Grok Build 0.2.42
+
+*   MCP servers provided at session start now persist across config hot-reloads
+
+June 9, 2026Jun 9, 2026
+
+v0.2.41
+
+## Grok Build 0.2.41
+
+*   Compaction completion message now shows before to after token reduction instead of only the final count
+*   Fixed token count after compaction so the displayed number no longer jumps back up on the next model response
+*   Fixed plugin skill loading when a manifest lists skill directories directly instead of a parent skills/ folder
+*   Fixed memory context injection on resume so the prompt prefix stays byte-stable and KV cache is preserved
+
+June 9, 2026Jun 9, 2026
+
+v0.2.40
+
+## Grok Build 0.2.40
+
+*   `grok --debug` now produces per-session log files under `~/.grok/debug/` even with a leader process
+*   Doom-loop warnings now correctly describe cycles and distinct edit failures instead of claiming identical arguments
+*   Model list changes from config or cache now appear in already-connected TUI and IDE clients without restart
+
+June 9, 2026Jun 9, 2026
+
+v0.2.39
+
+## Grok Build 0.2.39
+
+*   `run_terminal_cmd` can stream live stdout/stderr chunks when the workspace flag is enabled
+*   `/session-info` now displays the current turn index
+*   Background `&` operator is now allowed by default in terminal commands
+*   Resumed subagents no longer loop forever during auto-compaction on large context windows
+*   Background task descriptions and `&` rejection messages now correctly name the real parameters
+*   Doom-loop detection no longer falsely triggers on distinct failing tool calls
+
+June 8, 2026Jun 8, 2026
+
+v0.2.38
+
+## Grok Build 0.2.38
+
+*   Watching status line for background monitors
+*   Default model selection fix
+
+June 8, 2026Jun 8, 2026
+
+v0.2.37
+
+## Grok Build 0.2.37
+
+*   MCP tool result queries now list only command-line tools actually present on your system
+*   `grok update` now restarts any older running leader so all clients get the new binary
+*   Long-running bash commands that hit the timeout are now moved to the background by default instead of killed
+*   Subagents now correctly receive `web_search` and `x_search` tools from the parent session
+
+June 8, 2026Jun 8, 2026
+
+v0.2.36
+
+## Grok Build 0.2.36
+
+*   Large MCP tool results are now saved with the correct extension and the model receives better hints for querying them
+*   Fixed false-positive doom-loop terminations when many parallel tool calls fail together in one batch
+*   Fixed a crash that could occur during auto-compaction when resuming a session containing reasoning content
+
+June 7, 2026Jun 7, 2026
+
+v0.2.34
+
+## Grok Build 0.2.34
+
+*   `grok login` now defaults to device code flow, which works reliably in SSH, WSL, VPN, and browser-restricted environments
+*   Fixed a hang during auth refresh
+
+June 7, 2026Jun 7, 2026
+
+v0.2.33
+
+## Grok Build 0.2.33
+
+*   Fixed duplicate turn output when attaching a second client to an active leader session
+*   Fixed "Send now" on queued prompts
+
+June 6, 2026Jun 6, 2026
+
+v0.2.32
+
+## Grok Build 0.2.32
+
+*   Slash commands from project plugins now appear correctly in every open conversation after a plugin change
+*   Prompts submitted rapidly now stay in correct submission order in the queue
+*   Grep searches on large repositories are now substantially faster and no longer hit the 60-second timeout
+
+June 6, 2026Jun 6, 2026
+
+v0.2.31
+
+## Grok Build 0.2.31
+
+*   Marketplace skills without proper descriptions are now hidden from listings instead of flooding the model with tables
+*   Prompts submitted rapidly now stay in correct submission order in the queue
+*   Grep searches on large repositories are now substantially faster and no longer hit the 60-second timeout
+
+June 5, 2026Jun 5, 2026
+
+v0.2.30
+
+## Grok Build 0.2.30
+
+*   A new plugin install suggestion appears above the prompt when you type a known marketplace plugin name or domain
+*   Trace uploads and remote session restores now succeed with a deployment key and no browser login
+*   Resumed sessions no longer pad the sticky prompt with empty rows; cancelling a turn now keeps the rest of the prompt queue intact
+*   Cancelling a running prompt no longer leaves the interface stuck on the cancelling spinner
+
+June 5, 2026Jun 5, 2026
+
+v0.2.29
+
+## Grok Build 0.2.29
+
+*   `/rewind` before a compaction boundary no longer leaves later prompts in context
+*   Resuming large sessions is now substantially faster with no data loss
+
+June 5, 2026Jun 5, 2026
+
+v0.2.28
+
+## Grok Build 0.2.28
+
+*   Images read via `read_file` are now downscaled even when small in bytes but large in pixels
+
+June 4, 2026Jun 4, 2026
+
+v0.2.27
+
+## Grok Build 0.2.27
+
+*   Image and video generation tools now include the saved filename and session folder in their output
+*   Monitor output no longer appears as raw XML in the conversation view during leader sessions
+*   Windows commands containing `&` are no longer incorrectly rejected by `run_terminal_cmd`
+*   `python -c` save-to-file reminder now suggests correct commands on Windows
+
+June 4, 2026Jun 4, 2026
+
+v0.2.26
+
+## Grok Build 0.2.26
+
+*   Large pasted content no longer triggers context-window errors or breaks compaction and memory flush
+*   API-key users can now run `grok agent --leader` without forced interactive login or timeouts
+*   Compaction no longer retries endlessly on credit, size, or auth failures; shows a clear message instead
+*   Windows PowerShell and `cmd.exe` no longer falsely reject commands containing `&`
+*   `web_fetch` no longer crashes the CLI on pages whose root element matches a cleaning selector
+
+June 3, 2026Jun 3, 2026
+
+v0.2.23
+
+## Grok Build 0.2.23
+
+*   Leader sessions can now be viewed and controlled from multiple clients with a live dashboard
+*   Sessions can now be deleted directly from the `/resume` history picker
+*   MCP plugin servers with bundled OAuth client IDs now authenticate correctly
+
+June 3, 2026Jun 3, 2026
+
+v0.2.20
+
+## Grok Build 0.2.20
+
+*   Eliminate ghost-cell artifacts in markdown table rendering
+*   Make monitors visible and killable to the model
+*   Preserve soft breaks in plan preview
+*   Add `image_to_video` and `reference_to_video` tools
+*   Add bundled imagine skill
+*   Convert ICO images to PNG
+*   Resolve `[Image #N]` attachment references in `image_edit`
+*   Open fullscreen viewer on `Enter` for Search and ListDir blocks
+*   Route MCP lifecycle notifications by `sessionId` + bound per-server init
+*   Route mouse-wheel scroll to `/btw` overlay panel
+*   Compaction: neutralize echoed summarization instruction in summary seed
+*   Structured compaction prompt (successor-assistant, carry-forward, `<analysis>` block)
+*   Dedupe between-turn subagent completion reminders
+*   Allow auto-update to downgrade on rollback
+*   Dedupe MCP servers declared in both `.mcp.json` and `plugin.json`
+*   Fix local stdio MCP servers on Windows
+
+May 31, 2026May 31, 2026
+
+v0.2.16
+
+## Grok Build 0.2.16
+
+*   Fix stuck "Starting session..." / "Connecting MCPs (0/0)..."
+*   Show where external skills/mcps/hooks/plugins originate in `grok inspect`
+*   Fix Terminal.app unsafe shortcuts
+*   Render streaming bash output
+*   Use LLM to derive `/loop` interval from the request instead of hardcoded parsing
+*   Fix parent session state (background tasks, monitor) leaking into subagent conversations
+*   Make Claude/Cursor skills, AGENTS, mcps, and plugins configurable
+*   Wire `--permission-mode acceptEdits` to auto-approve edits
+*   Share FS watchers by working directory
+*   Expose btrfs snapshot worktrees via symlink
+*   Inject UTF-8 env defaults for Windows child processes
+*   Fix blank completed bash / code-execution cards
+*   Fix scroll wrap on scrolling vs. shortcuts on all menus
+
+May 31, 2026May 31, 2026
+
+v0.2.15
+
+## Grok Build 0.2.15
+
+*   Remember your last permission choice across tools, with a configurable first-prompt default in `config.toml`
+
+May 30, 2026May 30, 2026
+
+v0.2.14
+
+## Grok Build 0.2.14
+
+*   Open generated images and videos directly from the terminal UI via buttons or clicks
+*   Group the background tasks panel into collapsible sections with clearer styling for monitors and loops
+*   Generate session titles reliably using a fixed default model
+*   Make `--permission-mode` override the `permission_mode` setting from `config.toml`
+
+May 30, 2026May 30, 2026
+
+v0.2.13
+
+## Grok Build 0.2.13
+
+*   Show timestamps on pinned user messages at top of scrollback
+*   Fix command highlighting when prompt has paste chips
+*   Update the context-usage indicator to show tokens by default
+*   ANSI16 fallback for themes
+*   Better context usage breakdown/rendering
+*   Update highlighting for `/loop`, monitor, tag colors
+*   Group Subagents → Tasks → Watchers, within subagents, order by agent type (Explore, General, Plan)
+*   Tab now cycles Prompt → Scrollback → Tasks → Prompt
+*   Order gateway turn-completion after streamed content
+*   Formatting: fix language-tagged fenced code blocks and fix code under a list item
+
+May 29, 2026May 29, 2026
+
+v0.2.11
+
+## Grok Build 0.2.11
+
+*   Make tab bar arrow-focusable in picker modals (MCPs, plugins, hooks)
+*   Show "Switched to mode" banner above prompt for `Shift+Tab` cycles
+*   Instant loading indicator on model switch
+*   Fix broken branch glyph on Windows
+*   Fix WSL `Ctrl+V` image paste
+*   Fix UX bug where `/context` always showed "Auto-compact at 85%"
+*   Fix slash command autocomplete and rendering
+*   Boost terminal video playback to 30fps
+*   `Left`/`Right` arrows switch tabs in extensions modal
+*   `Up`/`Down` arrows at list edges focus search input
+*   Fix terminal resize on multiplexer
+*   Open buttons for imagine media output
+*   Render streaming bash tool output
+*   Increase default retry budget to ~5 min and simplify retry UI
+
+May 28, 2026May 28, 2026
+
+v0.2.8
+
+## Grok Build 0.2.8
+
+*   Support interject action for queued prompts
+*   Restore prompt focus on terminal tab click/`FocusGained`
+*   Highlight commands in inline ghost and multi-line prompts
+*   Reject `8×8` images on the client
+*   Force static CRT linking on Windows to fix `ARM64` `DLL_NOT_FOUND`
+*   Fix dim terminal when the `/rewind` menu is open
+*   Mouse-click support for cancel-turn and `/rewind`
+*   Append transcript path to compaction summary
+*   Fix stale 5-min default in monitor `timeout_ms` prompting
+*   Clean up the system prompt further for task adherence
+
+May 27, 2026May 27, 2026
+
+v0.2.7
+
+## Grok Build 0.2.7
+
+*   Wrap around on `Up`/`Down` in slash menu and history search
+*   Restore subagent UI and replay on session resume
+*   Fix `Ctrl+Delete` on Windows
+*   Windows drag-and-drop screenshot images and `Ctrl/Alt+V` image input
+*   Add Windows-friendly alternatives for `Ctrl+Enter` / `Ctrl+;`
+*   Strip base64 string images from `read_file` tool calls and pass as multimodal vision tokens
+*   Share terminal backend, scheduler, and monitor across subagent sessions
+*   Image pipeline improvements (fix truncation, min pixels)
+*   `/login` command to reauth from inside the TUI
+*   Add `/usage`
+*   Handle `Cmd+A` in prompt to select all text in Ghostty
+
+May 26, 2026May 26, 2026
+
+v0.2.3
+
+## Grok Build 0.2.3
+
+*   Add "Yes, and don’t ask again for anything" always-approve mode
+*   Add alpha/stable channel indicator to welcome screen
+*   JetBrains / JediTerm terminal detection so the TUI does not misidentify the host
+*   Persist model ID instead of display name for `default_model`
+*   Clamp Q&A height to prevent ratatui buffer overflow
+*   Better UX for `tmux`-inside-`ssh` copy/paste issues
+*   Store vim mode persistently in `config.toml` so it survives restart
+*   Memory usage improvements for managing chat history on the hot path
+
+May 25, 2026May 25, 2026
+
+v0.1.220
+
+## Grok Build 0.1.220
+
+*   Support `gt` and `git` in `/execute-plan`
+*   Always-approve is now an option during permission selection
+*   Fix routing for hook commands starting with tilde
+*   Make group collapse header an independent selectable entry
+*   Fix copy/paste on Linux Wayland (Omarchy, CachyOS, Hyprland)
+*   Skip KKP for unknown terminals with no multiplexer (fixes broken `Shift`)
+*   Paste file-path text instead of \[Image #1\] for non-image files
+*   Improve legibility on legacy Windows Console Host
+*   Delete misleading post-compaction todo reseed reminder
+*   Auto-background long-running user-triggered bash-mode commands when invoked via `!`
+
+May 24, 2026May 24, 2026
+
+v0.1.219
+
+## Grok Build 0.1.219
+
+*   Fix usage-limit bugs with prompt caching
+*   Fix layout-shifted chars in Kitty terminal
+*   Replace `Shift+Enter` with `Alt+Enter` on VTE-based terminals (GNOME Terminal, Ptyxis, kgx, Tilix, etc.)
+*   Default-expand `search_replace`, `write_file`, and `run_terminal_command` calls on scrollback
+*   Mixed prose + URL paste no longer silently drops prose
+*   Fix `set_images` byte-length collision losing chips
+*   Make multi-line markdown link URLs clickable across word-wrap
+*   Clear selection when expanding a truncated group
+*   Remove `read_file` duplicate-read check that breaks after compaction
+
+May 23, 2026May 23, 2026
+
+v0.1.218
+
+## Grok Build 0.1.218
+
+*   `Ctrl+X` as default shortcuts-help binding on Windows
+*   Fix image pasting and shortcuts keybinding on Linux
+*   User-specified duration for video generation tool
+*   Support temporary screenshot images on macOS
+*   Validate image bytes to prevent retries
+*   Improve compaction prompt (match training and rehydrate skills)
+*   Increase `ulimit` on macOS and Linux, preventing `ENOSPC` errors from bricking the CLI
+*   Multi-line image links are no longer clickable (and no longer break)
+
+May 22, 2026May 22, 2026
+
+v0.1.217
+
+## Grok Build 0.1.217
+
+*   Proactive system-reminders to reduce laziness
+*   Improve compaction via prompt tuning and context management
+*   Add `/export`
+*   Fix rendering on extra-large monitors
+*   Fix `grok -w` crash when git index is empty
+*   Show path on image and video generation
+*   Show first tool call when group is expanded
+*   `/config-agents` modal
+*   Expose session agent name in session/info
+*   Laziness detector and todo reminder
+*   Fix `UTF-8` truncation in tool-call output causing crashes
+
+May 21, 2026May 21, 2026
+
+v0.1.214
+
+## Grok Build 0.1.214
+
+*   Rolling out X search and a much faster web search
+*   Fix Windows rendering bugs on PowerShell
+*   Fix arrow-up keybinding in modals
+*   Fix non-vim mode keybinding hints
+*   Fix `Cmd+Click` on wrapped links
+*   Filter out sessions that had no user input from the picker
+*   Support `hookSpecificOutput.tool_input` override
+*   Prevent crash on exit when there are MCP servers with expiring tokens
+*   Auto-refresh Skills when plugins change
+
+May 20, 2026May 20, 2026
+
+v0.1.212
+
+## Grok Build 0.1.212
+
+*   macOS `x86_64` (Intel) support
+*   Windows `ARM64` (`aarch64`) support
+*   Render links inside table cells
+*   `Shift+Enter` newline insertion on Windows Terminal
+*   `Space` / `Enter` / click toggle sections in shortcuts help modal
+*   Enable Kitty Graphics  [... truncated (26159 chars total)]

@@ -1,0 +1,22 @@
+capture_source: goal_session_updates.jsonl
+session_id: 019ef0e7-e353-7822-89e0-412709416638
+tool: WebSearch
+tool_call_id: call-58d82445-d154-4ddb-ac4a-37ab8247dfe8-composer_call_BT47N
+tool_arguments: {"search_term": "Devin Factory AI agent features mission mode 2026", "explanation": "Wave 1: Competitive analysis - Devin/Factory"}
+call_timestamp: 1782158367
+result_timestamp: 1782158615
+first_synthesis_timestamp: 1782159521
+bytes: 665
+---
+Title: Web search results
+Content: Links:
+1. [theaiagentindex.com](https://theaiagentindex.com/compare/factory-ai-vs-devin)
+2. [research.contrary.com](https://research.contrary.com/company/cognition)
+3. [factory.ai](https://factory.ai/news/missions)
+4. [factory.ai](https://factory.ai/news/missions-architecture)
+5. [www.digitalapplied.com](https://www.digitalapplied.com/blog/factory-ai-multi-agent-coding-platform-review)
+6. [docs.factory.ai](https://docs.factory.ai/cli/features/missions)
+7. [tech-insider.org](https://tech-insider.org/factory-ai-150-million-series-c-khosla-coding-droids-2026/)
+8. [docs.devin.ai](https://docs.devin.ai/release-notes/2026)
+
+---

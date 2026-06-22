@@ -1,0 +1,462 @@
+capture_source: goal_session_updates.jsonl
+session_id: 019ef0e7-e353-7822-89e0-412709416638
+tool: WebFetch
+tool_call_id: call-0367e56f-f0d5-4a13-82cb-c61ca4488ed4-composer_call_vLZyG
+tool_arguments: {"url": "https://docs.devin.ai/release-notes/2026"}
+call_timestamp: 1782158619
+result_timestamp: 1782158715
+first_synthesis_timestamp: 1782159521
+bytes: 24101
+---
+# Content from https://docs.devin.ai/release-notes/2026
+
+> ## Documentation Index
+> Fetch the complete documentation index at: https://docs.devin.ai/llms.txt
+> Use this file to discover all available pages before exploring further.
+
+# 2026
+
+<Update label="June 19, 2026">
+  **MCP Marketplace Expansion**
+
+  48+ new engineering MCP connectors are now available, including Miro, Mixpanel, Honeycomb, Postman, monday.com, Klaviyo, and many more. 42 previously-beta MCPs have graduated to general availability. New additions include LaunchDarkly (with hosted OAuth), Fathom, Attio, and Calendly. Google Drive MCP is now available to all users.
+
+  **Dedicated MCP Management Page**
+
+  Enterprise admins now have a dedicated MCP management page with per-server detail views showing organization-wide and per-session usage, replacing the previous side panel.
+
+  **GitLab User Identity Linking**
+
+  Link your personal GitLab account so Devin creates Merge Requests under your GitLab user instead of the Devin identity. For enterprises with self-hosted GitLab instances, admins can register a GitLab OAuth Application under Advanced settings to enable user linking for self-hosted instances.
+
+  **Devin Review for GitLab**
+
+  Devin Review now supports GitLab Merge Requests. Intelligent diffs, inline comments, and AI chat all work on GitLab MRs. Your GitLab MRs appear in the sidebar organized by status (Needs your review, Returned to you, Approved, Waiting for reviewers, Drafts). GitLab repos can be added to auto-review in Review settings.
+
+  **File Path Visible During Streaming Edits**
+
+  The full file path is now shown while the edit tool is actively streaming changes, so you always know which file Devin is modifying.
+
+  **Deduplicated File Tabs with Version Switcher**
+
+  When multiple versions of the same file exist, they are consolidated into a single tab with a version dropdown instead of cluttering the tab bar.
+
+  **Slack Formatting in Webapp Comments**
+
+  Bold, links, code, and other Slack formatting now renders correctly in webapp thread comments forwarded from Slack.
+
+  **PR Context Visible While Waiting for CI**
+
+  PR-ready context is now shown while CI checks are still running, so you can start reviewing before checks complete.
+
+  **Improved Feedback Controls**
+
+  Both thumbs-up and thumbs-down buttons are now always visible on messages. Session-level feedback and a qualitative feedback modal make it easier to share detailed feedback.
+
+  **Incremental Generation Steps in Automation Input**
+
+  The AI-assisted automation input now shows incremental generating steps as it builds your automation configuration.
+
+  **Public Repos Shown as Disabled in Repo Picker**
+
+  Public repositories now appear greyed out in the repo picker instead of being hidden, making it clear they exist but are not selectable.
+
+  **"User Only" PR Author Enforcement**
+
+  A new "User only" option is available in the "Open PRs as" setting. When selected, Devin will only create PRs under the user's identity and will fail if their Git account is not connected. Automations and service users fall back to the Devin identity. Enterprise admins can enforce this setting across all organizations.
+</Update>
+
+<Update label="June 17, 2026">
+  **Cmd+K: Switch Organization & Copy Org ID**
+
+  The command palette (Cmd+K / Ctrl+K) now supports switching between organizations and copying your org ID without navigating to settings.
+
+  **Sidebar: Unpin & Remove-from-Folder Quick Actions**
+
+  The sidebar archive button has been replaced with context-aware quick actions: pinned sessions show an "Unpin" button, and sessions in a folder show "Remove from folder." Archive remains accessible via the context menu.
+
+  **Wiki: Clean Page URLs**
+
+  Wiki pages now use cleaner `/page/<id>` routes instead of the previous longer format, making links easier to share and bookmark.
+
+  **Automations Sidebar**
+
+  Automations now appear in the main navigation sidebar for quicker access to your configured automation rules.
+
+  **Japanese Translations: 100% Coverage**
+
+  All remaining Japanese translation keys have been filled across the platform, bringing Japanese language coverage to 100%.
+
+  **Ask Devin: @repos Picker Scoped to Search Repos**
+
+  The @repos file picker in Ask Devin now only shows repositories from your selected search scope, reducing noise when referencing files.
+
+  **Suggested Knowledge Visible in Session Worklog**
+
+  When Devin suggests a knowledge item during a session, it now appears as a standalone event in the worklog for easier visibility and review.
+
+  **Devin Review: Comment Language Selector**
+
+  When reviewing PRs in Devin Review, you can now select the language for AI-generated review comments (e.g., English, Japanese, Spanish).
+
+  **Devin Review: Security Findings**
+
+  All Devin reviews now include a security findings section. The security reviewer respects your repository's SECURITY.md file to tailor its analysis to your project's security policies.
+
+  **Devin Review: Code Owner Review Block**
+
+  The merge bar now shows when a PR is blocked waiting for code owner approval, making it clear which reviews are still required before merging.
+
+  **Devin Review: GitHub Alert Callouts**
+
+  GitHub-style alert callouts (note, warning, caution, etc.) in markdown files now render with proper styling in Devin Review.
+
+  **Slack: Preceding Thread Messages as Context**
+
+  When Devin is mentioned in a Slack thread, it now receives the preceding thread messages as context, enabling more informed responses without needing to repeat background information.
+
+  **Slack: !agent Bang Command**
+
+  Use `!agent` in Slack messages to Devin to explicitly route your request to a full Agent session instead of Ask mode.
+
+  **Default Sync with Slack Per Session**
+
+  New sessions can now default to syncing messages with Slack, configurable at the organization level so teams stay in the loop automatically.
+
+  **Automations: Slack Channel Updates**
+
+  Automation run results can now be posted to a designated Slack channel, keeping your team informed of automated session outcomes.
+
+  **Linear: Projects Filter for Triggers**
+
+  When configuring Linear-triggered automations, you can now filter by Linear project to scope which issues trigger Devin sessions.
+
+  **MCP Server: View Logs on Error**
+
+  MCP plugin error cards now include a "View logs" button linking directly to the MCP output channel, plus detailed error information surfaced in the plugin status card for faster debugging.
+
+  **Axiom MCP Server**
+
+  A new official Axiom MCP integration is available, allowing Devin to query your Axiom logs and observability data during sessions.
+
+  **Structured Output Schema for Playbooks**
+
+  Playbooks now support a structured output schema, enabling Devin to return results in a defined JSON format for easier programmatic consumption.
+
+  **Enterprise Knowledge Limit Increased to 300**
+
+  The maximum number of enterprise knowledge items has been increased from 200 to 300.
+</Update>
+
+<Update label="June 12, 2026">
+  **Session Folders**
+
+  Group sessions into named folders in the sidebar. Move sessions via drag-and-drop or the three-dot menu. Folders are personal, so each user defines their own layout.
+
+  **!ultra and !fast Mid-Session Toggles**
+
+  You can now start sessions on Devin Ultra directly from Slack with the `!ultra` command. You can also switch between Ultra and Fast modes mid-session by typing `!ultra` or `!fast` in the Slack thread.
+
+  **Smarter Emoji Reactions**
+
+  Devin now only adds sleep/archive emoji reactions to messages that are explicit sleep or archive commands, reducing noise on other status messages.
+
+  **Custom OAuth for Marketplace MCP Servers**
+
+  Marketplace MCP servers that require organization-specific OAuth client credentials can now be configured directly from the integrations page.
+
+  **Markdown File Preview in Worklog**
+
+  Markdown files created during a session now render with a preview toggle, letting you see the formatted output alongside the raw content.
+
+  **Web Search Enterprise Setting**
+
+  Enterprise admins can now enable or disable Devin's web search capability via a new toggle in enterprise settings.
+
+  **"Users" Tab Renamed to "Members"**
+
+  The org membership page tab now reads "Members" for clarity.
+</Update>
+
+<Update label="June 10, 2026">
+  **Devin Review: Pending PR Reviews Canceled on New Commits**
+
+  When new commits are pushed to a PR, any in-progress Devin reviews are now automatically canceled. The PR Review API also reflects this with a new `cancelled` status on review objects.
+
+  **Large Pastes Automatically Attached as Files**
+
+  Pasting large content (10k+ characters) into the composer now automatically attaches it as a file, regardless of existing message length. This keeps your prompt clean and avoids hitting size limits.
+
+  **User Mentions Rendered as Styled Links**
+
+  @mentions in session messages are now displayed as styled deeplinks instead of the raw "@Name (ID)" format.
+
+  **"Sent from Slack/Teams/Linear" Indicator**
+
+  Follow-up messages that originated from an integration now show a small badge indicating their source (e.g., "Sent from Slack").
+
+  **Echo Message to Slack Toggle**
+
+  A new toggle lets you bypass Slack message suppression and echo your webapp messages into the Slack thread, even in quiet-mode sessions.
+
+  **Improved Slack Message Rendering**
+
+  HTML entities in Slack messages are now properly decoded outside of code blocks, fixing garbled characters in forwarded content.
+
+  **Official Figma MCP Integration**
+
+  The official Figma MCP server is now available with suggestions enabled. The previous unofficial integration has been deactivated.
+
+  **IdP Group Role as First Assignment**
+
+  Org-scoped IdP groups can now use a group role as their very first role assignment, removing the previous requirement to set an individual role first.
+
+  **Success Confirmation After Org Creation**
+
+  Creating a new organization within an enterprise now shows a clear success state, confirming the operation completed.
+</Update>
+
+<Update label="June 5, 2026">
+  **Start a New Session with This Prompt**
+
+  The first message in a session now shows a "Start a new session with this prompt" button, replacing the previous "Start duplicate session" menu action. Reuse any prompt for a fresh session in one click.
+
+  **Playbook Devin Mode**
+
+  Playbooks can now specify a Devin mode (e.g., Fast or Normal). When launching a session from a playbook, the agent picker reflects the playbook's configured mode.
+
+  **Configurable Auto-Reload Threshold**
+
+  You can now customize the balance threshold that triggers auto-reload in the billing usage modal.
+
+  **Jira Webhook Failure Recovery**
+
+  When a Jira webhook connection fails, a banner now appears in your Jira integration settings with a one-click reconnect action to restore the connection.
+
+  **Devin Review: Action-Required Flags on PRs by Default**
+
+  Devin Review now posts orange action-required flags to your GitHub pull requests by default when issues are found that need investigation.
+
+  **Webhook URL in Automation Editor**
+
+  The automation editor now displays the webhook URL directly under the webhook trigger, so you can copy it without navigating away.
+
+  **Improved Slack Message Formatting**
+
+  Devin's messages in Slack now use full markdown formatting for all users, providing richer text rendering with proper links, code blocks, and lists.
+
+  **Send Messages While Session Is Queued**
+
+  You can now send messages to a session that is waiting for capacity. Your messages will be delivered as soon as the session starts.
+
+  **Persist Chat Draft Across Panel Close**
+
+  Draft messages in the session composer are now preserved when the panel is closed and reopened, so you won't lose work in progress.
+
+  **Session Counts on Collapsed Sidebar**
+
+  Session counts are now visible on collapsed sidebar section headers, giving you a quick overview without expanding each section.
+
+  **Devin Review: Connect Personal Account from Blocked Controls**
+
+  In Devin Review, when Review, Merge, or comment actions are blocked because your personal identity isn't linked, you can now connect your GitHub or GitLab account directly from the blocked control without navigating to settings.
+
+  **Active Todo in Slack Plan Header**
+
+  The collapsed plan header in Slack threads now shows the currently active todo item, so you can see what Devin is working on at a glance.
+
+  **Detect @Devin Mentions After Inviting the Bot**
+
+  When you tag @Devin in a channel where the bot isn't present and then invite it, Devin now detects and responds to your original mention.
+
+  **Lower Minimum Per-Session Limit for Automations**
+
+  The minimum per-session limit for automations has been lowered from 3 to 1, giving you finer-grained control over automation budgets.
+
+  **Scratchpad Moved Under MCPs in Automations**
+
+  The scratchpad section in the automation editor has been moved to the top level under MCPs for easier discoverability.
+
+  **Prompt to Reconnect Linear**
+
+  When creating a Linear automation with an expired personal token, you'll now be prompted to reconnect before proceeding.
+</Update>
+
+<Update label="June 3, 2026">
+  **Personal Automations**
+
+  You can now create personal automations that run under your own identity. Personal automations include a dedicated toggle, permission model, and badge in automation lists. The legacy Schedules page now shows migration guidance to help you transition to the new Automations system.
+
+  **Devin Review: Enrolled Users, Spend Limits, and GHES/GitLab Support**
+
+  Devin Review now includes an enrolled users management table in settings, a redesigned per-PR spend limit that acts as a soft block (you can re-enable if needed), and pinned section titles above file headers in the embedded review view. "Open in Devin Review" is now available for GitHub Enterprise Server and GitLab PRs.
+
+  **Pre-Approve Testing**
+
+  A new user preference lets you always approve testing for future sessions, so Devin can test changes without prompting each time. Access it from your profile settings or via the split-button on the "Test the app" action.
+
+  **V3 API: Organization Members and Automations**
+
+  New org-scoped `GET /v3beta1/organizations/{org_id}/members` endpoint for listing organization members. A full automations CRUD API is also now available via v3.
+
+  **SSO/SCIM: JIT Provisioning and Enterprise Redirect**
+
+  SSO just-in-time provisioning can now be toggled on or off, with group sync gated separately. SSO-only enterprise users are now automatically redirected to their enterprise webapp host on login.
+
+  **Settings Improvements**
+
+  The Repositories page now supports pagination. Search results in the settings sidebar are deduplicated with indent guides. A permission-gated "Add repositories" button and empty state have been added to Skills & Rules. Terminology has been updated from "org" to "organization" throughout.
+
+  **Child Sessions: Tree Connector**
+
+  Child sessions now display with a tree connector in the sidebar, making parent-child relationships visually clear.
+
+  **Bug Fixes**
+
+  Persisted orange sidebar indicator for quota-suspended sessions. Made question answer submission optimistic, removing click lag. Fixed send button centering at fractional zoom levels. Added email fallback for IdP users without a name in the session list. Fixed cross-org router links dropping query string and hash. Added cost column to scheduled sessions past sessions list. Cleared "Approve session" attention dot once the session is read. Restored question selections when an optimistic submit fails. Pinned bulk-edit bar to viewport bottom centered over content column. Included enterprise members in the session creator filter.
+</Update>
+
+<Update label="May 29, 2026">
+  **New Command Palette**
+
+  The redesigned command palette is now available with improved search, keyboard navigation, and settings integration. Access it with Cmd+K (Mac) or Ctrl+K (Windows/Linux) to quickly navigate pages, settings, and actions.
+
+  **Automations: Files-Changed Trigger**
+
+  The automation builder now supports file-change triggers for GitHub push events. You can configure automations to run only when specific files or directories are modified in a push. Pull request triggers also automatically add the appropriate action filter.
+
+  **PR Review Sidebar Restructure**
+
+  The in-session PR review sidebar has been redesigned with collapsible sections, portalized toolbar actions, and a new diff settings menu replacing the previous split/unified toggle.
+
+  **Raindrop.ai MCP in Marketplace**
+
+  The Raindrop.ai MCP server is now available in the MCP marketplace.
+
+  **Disable Review/Analysis for Merged and Closed PRs**
+
+  The review and analysis trigger is now disabled for already-merged and closed pull requests, preventing unnecessary processing.
+
+  **Wake Sleeping Sessions on Retrigger**
+
+  Sleeping sessions now automatically wake up when a PR comment retrigger is posted, so you no longer need to manually restart them.
+
+  **Devin Review: Respect CI Monitoring Setting**
+
+  Devin Review now correctly honors the "Disable automatic comment and CI monitoring" checkbox for merge-conflict notifications.
+
+  **Bug Fixes**
+
+  Fixed intermittent Recent repos display issue. Fixed diff view flashing two-column layout before snapping to unified view. Added DeepWiki button to repo indexing header. Fixed infinite page spinner when a user is not a member of the resolved organization.
+</Update>
+
+<Update label="May 22, 2026">
+  **Platform Default Settings**
+
+  Org admins can now set a default platform (Linux or Windows) for all new sessions, and individual users can star their personal preference. The default platform is honored across all session creation methods, including Slack, Linear, Jira, API, and automations.
+
+  **Slack Channel Override**
+
+  Type `!channel #channel-name` in Slack to override which channel Devin spawns its response thread in for that session.
+
+  **MCP OAuth Resource Parameter**
+
+  MCP OAuth flows now forward the RFC 8707 resource parameter, fixing authentication for MCP servers that require resource indicators (such as Snowflake and Runlayer).
+
+  **Custom RRULE Schedule Input**
+
+  Automation schedules now support pasting raw RFC 5545 recurrence rule strings directly, with validation and auto-detection, for schedules that go beyond the visual editor.
+
+  **GitLab Interactive PR Review**
+
+  GitLab repositories now support interactive PR review — Devin can post review comments and resolve threads as you — when the read-write GitLab connection is enabled.
+
+  **PR Review Status API**
+
+  A new `GET /v3/enterprise/pr-reviews` endpoint lets you poll Devin Review status programmatically, with optional commit SHA filtering.
+
+  **In-App Support Dialog**
+
+  "Contact support" now opens an in-app dialog where you can submit a ticket directly, replacing the previous email link.
+
+  **Inline Repo Permission Toggle**
+
+  You can now toggle repository permissions between "Read only" and "Read & write" directly from the permissions table, without needing to remove and re-add the repository.
+
+  **Enterprise Max Concurrent Snapshot Builds**
+
+  Enterprise admins can now set a maximum concurrent snapshot builds limit in enterprise settings, with backend enforcement to prevent build queue overload.
+
+  **GitLab OAuth Scope and Token Refresh**
+
+  GitLab user OAuth now requests the broader `api` scope for better compatibility, and tokens are automatically refreshed before they expire.
+
+  **Network Config Editor Redesign**
+
+  The network policy editor has been redesigned as an inline-editable list with multi-line paste support and duplicate detection, fixing the issue where domains typed but not submitted were silently lost on save.
+
+  **GitHub Connection No Longer Required for Automations**
+
+  GitHub-triggered automations no longer require a personal GitHub connection, allowing teams to rely on the org-level connection exclusively.
+
+  **PostHog MCP**
+
+  The PostHog MCP server is now available in the MCP marketplace, enabling product analytics integration directly from Devin sessions.
+
+  **Other Improvements**
+
+  Automation sessions now appear in a dedicated "Automations involving you" sidebar folder instead of being auto-pinned. Session @-mentions in chat are clickable links. A new Cmd+K action copies the session URL to clipboard. Archive undo now restores cascade-archived child sessions. MCP connection errors are surfaced instead of silently swallowed, and a new disconnect action removes stored OAuth tokens. Integration mappings for Linear, Slack, Teams, and Jira are validated at save time. The repo selector shows a Recent section and org labels. Tool calls in Watch Devin Work display timing. Automation-spawned sessions can be renamed by any org member. Integration page actions are permission-gated. File URLs in the timeline link to the correct git provider. GHES installations resolve bot identity per-config and scope webhook processing to the owning account.
+</Update>
+
+<Update label="May 17, 2026">
+  **Collapsible Session Folders**
+
+  Sessions in the left sidebar can now be organized into collapsible folders. Click the chevron to expand or collapse a folder, and your preference is persisted per organization.
+
+  **Archive All Sessions**
+
+  A new "Archive all" option in the sidebar menu lets you archive all sessions or asks at once, with a confirmation dialog and undo support. Child sessions skip the confirmation step for faster cleanup.
+
+  **Sub-Devin Session Filter**
+
+  The sessions page now includes a "Sub-Devin" filter that lets you view child sessions independently, with support for combined parent and child filtering.
+
+  **Default Member Roles**
+
+  Enterprise admins can now configure default roles that are automatically assigned to new organization members on join, with badge display in the members list and safeguards against accidental deletion of roles in use.
+
+  **GHES App Registration Restriction**
+
+  GitHub Enterprise Server app registration is now restricted to one app per account and host combination, preventing duplicate registrations with a clear error message when a conflict is detected.
+
+  **Copyable Organization ID**
+
+  Your Organization ID is now displayed with a one-click copy button on both the Settings → General and Settings → Devin API pages, making it easy to share with support or use in API calls.
+
+  **Admin-Enforced Settings Lock Icon**
+
+  Settings that have been locked by an admin now display a lock icon with an explanatory tooltip, replacing the previous banner-style callout for a cleaner interface.
+
+  **MCP OAuth Client Credentials**
+
+  When installing MCP integrations that don't support Dynamic Client Registration (such as Salesforce), you can now supply your own OAuth client credentials directly in the configuration flow.
+
+  **Tavily MCP in Marketplace**
+
+  Tavily web search is now available in the MCP marketplace, providing AI-optimized real-time web search and content extraction capabilities for your Devin sessions.
+
+  **PR Actions & Auto-Review Settings**
+
+  The PR actions menu in Devin Review has been restored with an auto-review toggle and personal settings popover, giving you quick access to review preferences without leaving the review interface.
+
+  **Checks Tab Always Visible**
+
+  The Checks tab is now always visible in the embedded PR review experience, and the merge-status popover properly restores the checks UI so you can always see CI status at a glance.
+
+  **Improved @-Mention Search**
+
+  The @-mention search in the chat input now uses fuzzy bag-of-words matching, so queries like "setup-dev" will find "setup-devin-dev". Repositories are also ranked first in the dropdown for faster access.
+
+  **Slack Improvements**
+
+  This release includes several Slack integration improvements: channel names now resolve correctly even for channels you haven't joined, mentions display as styled blue pill badges, unmapped channel messaging is clearer, the Watch c [... truncated (78877 chars total)]
