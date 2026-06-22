@@ -1,4 +1,4 @@
-capture_source: goal_session_updates.jsonl
+capture_source: parent_session_updates.jsonl
 session_id: 019ef0e7-e353-7822-89e0-412709416638
 tool: WebFetch
 tool_call_id: call-8b792faa-2796-4e00-a7be-488bf53116fe-composer_call_KiIgl

@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Verify grok-research-session deliverables with updates.jsonl authenticity checks."""
+"""Verify grok-research-session deliverables with swarm-union provenance checks."""
 
 from __future__ import annotations
 
@@ -18,6 +18,7 @@ MIN_IDEAS = 40
 MIN_CITATIONS = 40
 MIN_WAVE1 = 12
 MIN_WAVE2 = 2
+MIN_X_GATE = 2
 REQUIRED_FILES = [
     "README.md",
     "IDEAS.md",
@@ -27,9 +28,9 @@ REQUIRED_FILES = [
     "swarm/raw/MANIFEST.json",
     "swarm/raw/wave1/MANIFEST.json",
     "swarm/raw/wave2/MANIFEST.json",
-    "scripts/validate_from_updates.py",
-    "scripts/extract_from_updates.py",
-    "scripts/extract_x_wave_from_updates.py",
+    "scripts/scope_guard.py",
+    "scripts/extract_swarm_union.py",
+    "scripts/validate_swarm_provenance.py",
     "swarm/runs/2026-06-22-mega-swarm/track-grok-feedback.md",
     "swarm/runs/2026-06-22-mega-swarm/track-competitive.md",
     "swarm/runs/2026-06-22-mega-swarm/track-mcp-swarm.md",
@@ -51,7 +52,26 @@ FORBIDDEN = [
     "capture_research_transcripts",
     "capture_live_transcript",
     "capture_wave2_x_search",
+    "x_search.py",
+    ".hermes/auth.json",
 ]
+
+
+def x_gate_count() -> int:
+    count = 0
+    for path in (ROOT / "swarm" / "raw" / "wave2").glob("*.txt"):
+        text = path.read_text(encoding="utf-8")
+        if "logged_only: true" in text:
+            continue
+        header, _, body = text.partition("---\n")
+        if len(body.encode()) < 2000:
+            continue
+        if re.search(r"https?://[^\"]*(?:x\.com|twitter\.com)", header, re.I):
+            count += 1
+            continue
+        if "x_discourse_via:" in header:
+            count += 1
+    return count
 
 
 def main() -> int:
@@ -78,33 +98,42 @@ def main() -> int:
         if ref not in ideas:
             errors.append(f"IDEAS.md missing harness ref: {ref}")
 
-    for path in ROOT.rglob("*"):
-        if not path.is_file() or ".git" in path.parts:
+    scan_roots = [ROOT / "swarm" / "raw", ROOT / "scripts"]
+    for scan_root in scan_roots:
+        if not scan_root.is_dir():
             continue
-        if "verify_research" in str(path) or "validate_from" in str(path):
-            continue
-        try:
-            text = path.read_text(encoding="utf-8", errors="ignore")
-        except OSError:
-            continue
-        for marker in FORBIDDEN:
-            if marker in text:
-                errors.append(f"forbidden marker '{marker}' in {path.relative_to(ROOT)}")
+        for path in scan_root.rglob("*"):
+            if not path.is_file() or path.name.startswith("validate_swarm"):
+                continue
+            try:
+                text = path.read_text(encoding="utf-8", errors="ignore")
+            except OSError:
+                continue
+            for marker in FORBIDDEN:
+                if marker in text:
+                    errors.append(f"forbidden marker '{marker}' in {path.relative_to(ROOT)}")
 
     w1 = list((ROOT / "swarm" / "raw" / "wave1").glob("*.txt"))
-    w2 = list((ROOT / "swarm" / "raw" / "wave2").glob("*.txt"))
+    w2 = [p for p in (ROOT / "swarm" / "raw" / "wave2").glob("*.txt") if p.parent.name == "wave2"]
     if len(w1) < MIN_WAVE1:
         errors.append(f"wave1: {len(w1)} < {MIN_WAVE1}")
     if len(w2) < MIN_WAVE2:
         errors.append(f"wave2: {len(w2)} < {MIN_WAVE2}")
 
-    hn = ROOT / "swarm/raw/wave2/03-hn-grok-build-x-discourse.txt"
-    if not hn.is_file() or len(hn.read_text()) < 5000:
-        errors.append("wave2 missing non-trivial HN X-discourse transcript")
+    x_gate = x_gate_count()
+    if x_gate < MIN_X_GATE:
+        errors.append(f"wave2 X gate: {x_gate} < {MIN_X_GATE}")
 
-    rc = subprocess.call(["python3", str(ROOT / "scripts" / "validate_from_updates.py")], cwd=str(ROOT))
+    attempts = list((ROOT / "swarm" / "raw" / "wave2" / "attempts").glob("**/*.txt"))
+    if len(attempts) < 2:
+        errors.append("wave2/attempts missing logged site:x failures")
+
+    rc = subprocess.call(
+        ["python3", str(ROOT / "scripts" / "validate_swarm_provenance.py")],
+        cwd=str(ROOT),
+    )
     if rc != 0:
-        errors.append("validate_from_updates.py failed")
+        errors.append("validate_swarm_provenance.py failed")
 
     if not (SCRATCH / "wave1").is_dir() or len(list((SCRATCH / "wave1").glob("*.txt"))) < MIN_WAVE1:
         errors.append("scratch wave1 mirror incomplete")
@@ -117,7 +146,10 @@ def main() -> int:
             print(f"  - {e}")
         return 1
 
-    print(f"PASS: {idea_count} ideas, {len(urls)} citations, wave1={len(w1)} wave2={len(w2)}")
+    print(
+        f"PASS: {idea_count} ideas, {len(urls)} citations, "
+        f"wave1={len(w1)} wave2={len(w2)} x_gate={x_gate}"
+    )
     return 0
 
 

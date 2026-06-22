@@ -1,0 +1,16 @@
+capture_source: fix_round_web_fetch
+logged_only: true
+fix_round_post_synthesis: true
+tool: WebFetch
+tool_arguments: {"url": "https://x.com/xai/status/2058973760708091907"}
+note: Post-synthesis direct X URL fetch (native x_keyword_search unavailable). Not counted in pre-synth X gate.
+---
+# Content from https://x.com/xai/status/2058973760708091907
+
+xAI on X: "Grok Build is now available in Beta for all SuperGrok and X Premium+ users. Use Plan Mode, create images and videos with Imagine, and build automations or orchestrators with the CLI. Visit https://t.co/bpTHpjivWD to get started. https://t.co/OZ0kjtkpUf" / X
+
+[@xai](https://x.com/xai)
+
+Grok Build is now available in Beta for all SuperGrok and X Premium+ users. Use Plan Mode, create images and videos with Imagine, and build automations or orchestrators with the CLI. Visit [x.ai/cli](http://x.ai/cli) to get started.
+
+6:09 PM · May 25, 2026 — 73M Views — 1.1K replies

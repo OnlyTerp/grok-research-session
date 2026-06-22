@@ -1,0 +1,14 @@
+capture_source: fix_round_web_fetch
+logged_only: true
+fix_round_post_synthesis: true
+tool: WebFetch
+tool_arguments: {"url": "https://x.com/skcd42/status/2054993372662915183"}
+note: Post-synthesis direct X URL fetch (native x_keyword_search unavailable). Not counted in pre-synth X gate.
+---
+# Content from https://x.com/skcd42/status/2054993372662915183
+
+skcd on X — [@skcd42](https://x.com/skcd42)
+
+Article: Introducing Grok Build CLI Beta — "We built it as engineers who live in the terminal: people who reach for vim, think in keybindings, and treat the alt-screen as home."
+
+6:32 PM · May 14, 2026 — 1.7M Views — 116 replies

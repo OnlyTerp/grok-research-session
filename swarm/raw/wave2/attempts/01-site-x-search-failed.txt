@@ -1,0 +1,12 @@
+capture_source: parent_session_updates.jsonl
+logged_only: true
+tool: WebSearch
+tool_call_id: call-58d82445-d154-4ddb-ac4a-37ab8247dfe8-composer_call_VOaAT
+call_timestamp: 1782158367
+result_timestamp: 1782158368
+first_synthesis_timestamp: 1782159521
+bytes: 123
+reason: site_x_provider_error
+---
+site:x.com WebSearch provider error (not counted toward X gate).
+tool_call_id=call-58d82445-d154-4ddb-ac4a-37ab8247dfe8-composer_call_VOaAT

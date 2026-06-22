@@ -1,0 +1,104 @@
+capture_source: child_session_updates.jsonl
+session_id: 019ef0ee-7434-7ff1-b320-d6015306e830
+tool: Shell
+tool_call_id: call-52e0ee92-18c7-4d0d-a388-044947b4c4d4-composer_call_n1NXQ
+tool_arguments: {"command": "curl -s \"https://hn.algolia.com/api/v1/search?query=Grok%20Build&tags=comment&hitsPerPage=30\" | python3 -c \"\nimport sys,json,re\nd=json.load(sys.stdin)\nfor h in d['hits']:\n t=re.sub('<[^>]+>','',h.get('comment_text',''))\n if len(t)>50:\n  print('---', h.get('author'), h.get('story_title','')[:60])\n  print(t[:400])\n  print()\n\" 2>/dev/null", "description": "Fetch HN comments mentioning Grok Build", "required_permissions": ["full_network"]}
+call_timestamp: 1782158652
+result_timestamp: 1782158653
+first_synthesis_timestamp: 1782159521
+bytes: 8705
+parent_spawn_timestamp: 1782158619
+x_discourse_via: hn_algolia_comment_api
+---
+--- V01t Ask HN: Do you use Claude Code, Codex, or something else?
+I really like Grok Build. Its TUI interface, sleek design, and ease of use have really won me over.
+
+--- 1337shadow SpaceX to buy Cursor for $60B
+Well, grok build is an excellent product already IMHO
+
+--- lmedinas SpaceX to buy Cursor for $60B
+Thats grok build, which is pretty nice and has compatibility with Claude Code.
+They just need better models, that will be released soon.
+
+--- thisisit SpaceX to buy Cursor for $60B
+Grok has its own CLI tool called Grok Build:
+https:&#x2F;&#x2F;x.ai&#x2F;news&#x2F;grok-build-cli
+
+--- peterspath SpaceX to buy Cursor for $60B
+Good hopefully Grok Build gets better and they start to innovate in this area.
+Claude Code and ChatGPT need more competition. So that they also innovate more.
+
+--- jacobgold SpaceX to buy Cursor for $60B
+Musk bought Cursor for its users (lots of devs still use it), as part of yet another attempt at catching up after building Grok and buying OpenAI failed.Likely, Cursor becomes Grok Desktop or whatever, and eventually uses xAI&#x27;s coding model if they can make a competitive one.
+
+--- sibellavia SpaceX to buy Cursor for $60B
+Related:&gt; For the past few months, SpaceXAI has been jointly training a model with Cursor, which will be released in Cursor and Grok Build soon.https:&#x2F;&#x2F;x.com&#x2F;SpaceX&#x2F;status&#x2F;2066873915717136548
+
+--- peterspath SpaceX to buy Cursor for $60B
+Good hopefully Grok Build gets better and they start to innovate in this area.Claude Code and ChatGPT need some competition. So that they also innovate more.
+
+--- Maxious SpaceX to buy Cursor for $60B
+&gt; For the past few months, SpaceXAI has been jointly training a model with Cursor, which will be released in Cursor and Grok Build soon.https:&#x2F;&#x2F;x.com&#x2F;SpaceX&#x2F;status&#x2F;2066873915717136548
+
+--- ubertaco SpaceX to buy Cursor for $60B
+&gt;Their expertise will be used to improve Grok Build coding agent.Is Grok not a toxic enough brand (by association with Musk) that people who would use Cursor wouldn&#x27;t avoid Grok?Like, the assumption seems to be that all the goodwill that Cursor users have towards Cursor will now apply automatically to Grok, which seems like a pretty significant leap.
+
+--- giancarlostoro SpaceX to buy Cursor for $60B
+I think that&#x27;s another thing, while I would like to test Grok more, the Grok AI plans are very generic and not tailored specifically for programming, which is frustrating because I get maybe 8 hours out of Grok for $40 for an entire month, I do wonder if they offered a &quot;Grok Build only plan&quot; if it would actually give me access to more compute. Maybe they intend on making it through 
+
+--- kjksf SpaceX to buy Cursor for $60B
+Per latest reporting, Cursor&#x27;s current annual revenue rate is $4 billion.So SpaceX is buying 15 years of future cashflows, assuming no change in revenue. Which is bad assumption given past growth was gigantic.They are also buying 300-400 employees with proven record of training good coding models.Their expertise will be used to improve Grok Build coding agent.Also, they&#x27;re using stock, n
+
+--- giancarlostoro SpaceX to buy Cursor for $60B
+I wonder where they will take this, if they&#x27;ll use the Cursor team to help make Grok Build (which is not just a tool like Claude Code, but an actual Grok model too) more refined for programming? Would make sense to me, and in turn also provide Cursor with more compute they can use.
+
+--- BoumTAC SpaceX to buy Cursor for $60B
+Compose 2.5 is the default model in Grok Build. And it&#x27;s quite incredible. It&#x27;s comparable to Opus 4.7 but faster and incredibly cheaper .
+
+--- hpcjoe Ask HN: What are you working on? (June 2026)
+Working with a variety of AI models (Claude, Grok Build, various locally run models) and agents, I am scratching an itch.When people deploy python and perl code, they have to either export their entire environment, or build a container.  The latter is not possible in a number of deployment cases, and the former carries all manner of dependency radius gotchas.So I am building (ok, I am prompting&#x
+
+--- qingcharles Kimi K2.7-Code: open-source coding model with better token e
+Also, if you do have SuperGrok, forget using Grok, they are giving you Composer 2.5 in Grok Build.
+
+--- theturtletalks Robinhood now lets your AI agents trade stocks
+I’m using Hermes Agent and this MCP to orchestrate 5 models (DS4 Flash, GPT 5.5, Opus 4.8, Grok Build, Gemini 3.5 Flash). Basically these 5 models are making mock trades every day and keeping track of their potential losses and profit. Hermes keeps them going and making trades throughout the day.After a month, I’m going to check their mock trading sheet and see which one was the most “profitable” 
+
+--- nikolay Grok Build
+I haven&#x27;t seen anything as bad as Grok Build! I am sincere; they forced me to upgrade to Grok Heavy to try it, but this was the worst way to spend your money. Hallucination to the max, too chatty, too annoying!
+
+--- anderber Grok Build
+Here&#x27;s more on it: https:&#x2F;&#x2F;x.ai&#x2F;news&#x2F;grok-build-cliI haven&#x27;t tried the CLI, but the new Grok Build 0.1 agent wasn&#x27;t super impressive on first pass.
+
+--- BoumTAC Use boring languages with LLMs
+I’ve just started a new app with an Elm frontend. I’m using Grok Build, and it integrates really well.The compiler is incredibly helpful because it catches errors and gives clear explanations and the LLM can iterate over it. I’ve also added the elm-review package with the default configuration, which is fantastic for ensuring code quality.
+
+--- peterspath [dead]
+Now in early beta for all SuperGrok and X Premium Plus subscribers — Grok Build is a new coding agent that runs right from your terminal.
+
+--- nikolay I just sequenced a human genome to 30× coverage at home
+Same here. I use a paid Gemini plan and get outstanding results, but for coding, it&#x27;s not as good as Codex or Claude Code. But the worst is Grok - I&#x27;ve tried Grok Build, and for the first time in over 6 months, I saw gross hallucinations. DeepSeek is much, much better than Grok in every way.
+
+--- maipen Gemini 3.5 Flash
+I’m not sure if synthetic data is enough.Xai paying cursor to train models  with their data, tell us that having  an agent tool like claude code is important for quality data acquisition. That’s why they recently shipped grok buildI think we will see insane SOTA models from xai in the next few months.
+
+--- peterspath Skills in Web, iOS, and Android
+Good that they are catching up. Also their announcement of Grok Build is a good catch up.More competition in the &quot;AI&quot; field is better :)
+
+--- ofek Grok Build
+I won&#x27;t be able to fully test because the interactive prompt gates on the user having an advanced subscription (I already pay $40 a month) which for now doesn&#x27;t seem to be worth it.However, the TUI as shown in a post [0] by one of their engineers is quite beautiful. For a moment I thought it was written in Python because it looks similar to Textual [1] but I inspected the binary for my p
+
+--- everfrustrated Grok Build
+X Article from a xAi dev with some additional details on Grok Build https:&#x2F;&#x2F;x.com&#x2F;i&#x2F;status&#x2F;2054993372662915183
+
+--- peterspath SpaceX says it has agreement to acquire Cursor for $60B
+I think this is great and helps x.ai building Grok Code and Grok Computer.It is good to have more competition in this area.So there aren’t just 2 big players which also have their ideological flaws.
+
+--- pjc50 Goodbye to Sora
+&gt; I think the lack of nudity destroyed the adult marketAs we&#x27;ve see from Grok, building the system for producing non consensual nude images of other people will get the legal and PR hammer brought down on you fairly quickly. It&#x27;s just an incredibly unethical thing to do.
+
+--- comeondude What is Realtalk’s relationship to AI? (2024)
+I’m actually a huge fan of Brett Victor and I felt like he’s kinda missing the dynamic, adaptable nature of AI that allows non-technical people like me to finally access the system layer of computation for our creative ends.In other words, in many ways, AI (or rather llms) is the very thing that Brett Victor has spent his whole career imagining and creating - a computing interface that closes gap 
+
+--- amrocha Linda Yaccarino is leaving X
+idk friend, it seems kind of presumptuous to demand other people’s time like this.It’s pretty evident that the people building grok are injecting their ideology into it.I don’t need more evidence, and I don’t need you to agree with me. Go ahead and write those 20 lines if you so desire. I’m happy to be proven wrong.

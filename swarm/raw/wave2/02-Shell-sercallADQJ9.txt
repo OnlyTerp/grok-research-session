@@ -1,0 +1,13 @@
+capture_source: child_session_updates.jsonl
+session_id: 019ef0ee-7434-7ff1-b320-d6015306e830
+tool: Shell
+tool_call_id: call-f35b9058-2159-467d-8e84-81b782c06a77-composer_call_ADQJ9
+tool_arguments: {"command": "curl -s \"https://hn.algolia.com/api/v1/search?query=Grok%20Build%20Zed&tags=comment\" | python3 -c \"import sys,json,re; d=json.load(sys.stdin); h=d['hits'][0] if d['hits'] else None; print(re.sub('<[^>]+>','',h['comment_text']) if h else 'none')\"", "description": "Get Zed integration HN comment", "required_permissions": ["full_network"]}
+call_timestamp: 1782158680
+result_timestamp: 1782158681
+first_synthesis_timestamp: 1782159521
+bytes: 591
+parent_spawn_timestamp: 1782158619
+x_discourse_via: hn_algolia_comment_api
+---
+That&#x27;s easy. After learning the language, study good C code. Try to grok how the masters build higher-level abstractions.Learn from widely used C code that is not a toy. Examples: sqlite.org, git-scm.orgIf you don&#x27;t understand something,  look it up in the C standard doc.Most of the time, you will want to program for speed, and C will let you. Learn and practice C profiling.Also, you will need to learn defensive programming. The best source about this is &quot;Learn C The Hard Way&quot; by Zed Shaw: https:&#x2F;&#x2F;github.com&#x2F;zedshaw&#x2F;learn-c-the-hard-way-lectures
