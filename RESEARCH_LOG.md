@@ -1,61 +1,54 @@
 # Research Log — Mega Swarm Session 2026-06-22
 
+## Summary
+
+| Requirement | Outcome |
+|-------------|---------|
+| Mega-swarm web research | **Met** — 106 union pre-synth bodies ≥500B, parallel batch 12 |
+| Native X MCP (`x_keyword_search`, `x_semantic_search`) | **Not met** — tools absent from Cursor harness (ts `1782158364`) |
+| X-adjacent external discourse | **Partial** — HN web proxies only, not direct X API |
+| Ideas + citations committed to GitHub | **Met** — `IDEAS.md`, `FINDINGS.md`, this repo |
+
+See [LIMITATIONS.md](LIMITATIONS.md) for full honesty statement.
+
 ## Source of truth (swarm union)
 
 | Log | Role |
 |-----|------|
-| Parent `updates.jsonl` | `019ef0e7-e353-7822-89e0-412709416638` — parallel WebSearch/WebFetch wave |
-| Child `updates.jsonl` ×4 | Task subagents spawned `1782158619`, finished before synthesis |
+| Parent `019ef0e7-…` | Parallel WebSearch/WebFetch |
+| Children `019ef0ee-…` ×4 | Task subagents (spawned `1782158619`) |
 
-Extraction: `scripts/extract_swarm_union.py` (read-only). Headers use `call_timestamp` / `result_timestamp` from session logs only.
+Extraction: `scripts/extract_swarm_union.py` (read-only).
 
 | Milestone | Timestamp |
 |-----------|-----------|
-| 4× research subagents spawned | `1782158619` |
-| Child HN Algolia X-discourse (Shell) | `1782158653` |
+| Research subagents spawned | `1782158619` |
+| Child HN Algolia comments (Shell) | `1782158653` |
 | Parent HN Grok Build thread (WebFetch) | `1782159375` |
-| First synthesis (`IDEAS.md` Write) | `1782159521` |
+| First synthesis (`IDEAS.md`) | `1782159521` |
 
-## Native X tools: unavailable
+## Wave inventory
 
-The Cursor harness exposes **no** `x_keyword_search` or `x_semantic_search` MCP tools. **No** `x_search.py` / OAuth / `.hermes/auth.json` was used.
+### Wave 1 — Web (15 transcripts)
+Parent pre-synthesis `WebSearch`/`WebFetch`: x.ai, changelog, competitive agents, ACP, etc.
 
-### Pre-synthesis X-adjacent research (counted)
+### Wave 2 — X-discourse web proxies (3 transcripts)
+**Not native X tools.** Child Task `d6015306e830`:
 
-| File | Tool | Child/parent | Method | Bytes |
-|------|------|--------------|--------|------:|
-| `wave2/01-Shell-*.txt` | Shell | Child `d6015306e830` | HN Algolia `tags=comment` — Grok Build discourse | 8705 |
-| `wave2/03-WebFetch-*.txt` | WebFetch | Parent | HN thread 48139115 — @skp1995, @ofek, `x.com/skcd42` | 18868 |
+1. `Shell` — HN Algolia `tags=comment` (8705B, ts `1782158653`)
+2. `Shell` — HN Algolia Zed comment (591B, supplemental)
+3. `WebFetch` — HN item 48139115 with @skp1995/@ofek (18868B, ts `1782159375`)
 
-### Logged attempts (not counted)
+### Failed site:x.com attempts
+Metadata only: `wave2/attempts/site-x-failures.json` (2 provider errors, ~123B each in session log — bodies **not** committed).
 
-| Location | What |
-|----------|------|
-| `wave2/attempts/01-02-*.txt` | Failed `site:x.com` WebSearch (~600B provider errors) |
-| `wave2/attempts/x-direct-fetch/*.txt` | Post-synth direct `WebFetch` of `x.com/status` URLs (fix round) |
-
-## Waves
-
-### Wave 1 — Parent mega-swarm web (15 transcripts)
-Pre-synthesis `WebSearch` + `WebFetch`: x.ai, changelog, Claude/Cursor/Codex/Factory docs, ACP registry, competitive agents.
-
-### Wave 2 — Child swarm X-discourse (3 transcripts)
-Child Task session `019ef0ee-7434-7ff1-b320-d6015306e830` ("Research Grok CLI/X feedback") mined from `updates.jsonl`:
-- HN Algolia comment search (`call-52e0ee92-…-n1NXQ`, ts `1782158653`)
-- HN WebFetch Grok Build launch thread (parent, deduped with child copy)
-
-Three additional research tracks (`competitive`, `MCP/swarm`, `TUI/onboarding`) completed as subagents before synthesis; summaries in `swarm/runs/2026-06-22-mega-swarm/`.
-
-### Wave 3 — Synthesis
-`IDEAS.md`, `FINDINGS.md`, four track reports.
+### Synthesis
+`IDEAS.md`, `FINDINGS.md`, `swarm/runs/2026-06-22-mega-swarm/` track reports.
 
 ## Validation
 
 ```bash
-python3 scripts/scope_guard.py
-python3 scripts/extract_swarm_union.py
-python3 scripts/validate_swarm_provenance.py
-python3 tests/verify_research_artifacts.py
+bash scripts/run_verification_plan.sh
 ```
 
-Scratch mirrors: `/tmp/grok-goal-adddf1ff4ea4/implementer/wave1/` and `wave2/`.
+Scratch mirror: `/tmp/grok-goal-adddf1ff4ea4/implementer/`

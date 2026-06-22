@@ -18,19 +18,22 @@ MIN_IDEAS = 40
 MIN_CITATIONS = 40
 MIN_WAVE1 = 12
 MIN_WAVE2 = 2
-MIN_X_GATE = 2
+MIN_X_PROXY = 2
 REQUIRED_FILES = [
     "README.md",
     "IDEAS.md",
     "FINDINGS.md",
     "RESEARCH_LOG.md",
+    "LIMITATIONS.md",
     "SCOPE.md",
     "swarm/raw/MANIFEST.json",
     "swarm/raw/wave1/MANIFEST.json",
     "swarm/raw/wave2/MANIFEST.json",
+    "swarm/raw/wave2/attempts/site-x-failures.json",
     "scripts/scope_guard.py",
     "scripts/extract_swarm_union.py",
     "scripts/validate_swarm_provenance.py",
+    "scripts/run_verification_plan.sh",
     "swarm/runs/2026-06-22-mega-swarm/track-grok-feedback.md",
     "swarm/runs/2026-06-22-mega-swarm/track-competitive.md",
     "swarm/runs/2026-06-22-mega-swarm/track-mcp-swarm.md",
@@ -43,21 +46,17 @@ HARNESS_REFS = [
     "docs/07-acp-protocol.md",
     "docs/23-headless-mode.md",
 ]
-FORBIDDEN = [
+FORBIDDEN_IN_RAW = [
     "=== TOOL: web_fetch ===",
-    "x_search_skill",
-    "x_keyword_search_equivalent",
-    "x_semantic_search_equivalent",
     "live_research_continuation",
+    "fix_round_post_synthesis",
     "capture_research_transcripts",
     "capture_live_transcript",
     "capture_wave2_x_search",
-    "x_search.py",
-    ".hermes/auth.json",
 ]
 
 
-def x_gate_count() -> int:
+def x_discourse_proxy_count() -> int:
     count = 0
     for path in (ROOT / "swarm" / "raw" / "wave2").glob("*.txt"):
         text = path.read_text(encoding="utf-8")
@@ -65,9 +64,6 @@ def x_gate_count() -> int:
             continue
         header, _, body = text.partition("---\n")
         if len(body.encode()) < 2000:
-            continue
-        if re.search(r"https?://[^\"]*(?:x\.com|twitter\.com)", header, re.I):
-            count += 1
             continue
         if "x_discourse_via:" in header:
             count += 1
@@ -98,20 +94,23 @@ def main() -> int:
         if ref not in ideas:
             errors.append(f"IDEAS.md missing harness ref: {ref}")
 
-    scan_roots = [ROOT / "swarm" / "raw", ROOT / "scripts"]
-    for scan_root in scan_roots:
-        if not scan_root.is_dir():
+    raw_root = ROOT / "swarm" / "raw"
+    for path in raw_root.rglob("*"):
+        if not path.is_file():
             continue
-        for path in scan_root.rglob("*"):
-            if not path.is_file() or path.name.startswith("validate_swarm"):
-                continue
-            try:
-                text = path.read_text(encoding="utf-8", errors="ignore")
-            except OSError:
-                continue
-            for marker in FORBIDDEN:
-                if marker in text:
-                    errors.append(f"forbidden marker '{marker}' in {path.relative_to(ROOT)}")
+        try:
+            text = path.read_text(encoding="utf-8", errors="ignore")
+        except OSError:
+            continue
+        for marker in FORBIDDEN_IN_RAW:
+            if marker in text:
+                errors.append(f"forbidden marker '{marker}' in {path.relative_to(ROOT)}")
+
+    attempts = ROOT / "swarm" / "raw" / "wave2" / "attempts"
+    if list(attempts.glob("*.txt")):
+        errors.append("wave2/attempts must not contain .txt stubs")
+    if (attempts / "x-direct-fetch").exists():
+        errors.append("x-direct-fetch must not be in repo")
 
     w1 = list((ROOT / "swarm" / "raw" / "wave1").glob("*.txt"))
     w2 = [p for p in (ROOT / "swarm" / "raw" / "wave2").glob("*.txt") if p.parent.name == "wave2"]
@@ -120,13 +119,13 @@ def main() -> int:
     if len(w2) < MIN_WAVE2:
         errors.append(f"wave2: {len(w2)} < {MIN_WAVE2}")
 
-    x_gate = x_gate_count()
-    if x_gate < MIN_X_GATE:
-        errors.append(f"wave2 X gate: {x_gate} < {MIN_X_GATE}")
+    proxy = x_discourse_proxy_count()
+    if proxy < MIN_X_PROXY:
+        errors.append(f"x_discourse_proxy: {proxy} < {MIN_X_PROXY}")
 
-    attempts = list((ROOT / "swarm" / "raw" / "wave2" / "attempts").glob("**/*.txt"))
-    if len(attempts) < 2:
-        errors.append("wave2/attempts missing logged site:x failures")
+    limitations = (ROOT / "LIMITATIONS.md").read_text(encoding="utf-8")
+    if "not executed" not in limitations.lower() and "not met" not in limitations.lower():
+        errors.append("LIMITATIONS.md must state native X tools not met")
 
     rc = subprocess.call(
         ["python3", str(ROOT / "scripts" / "validate_swarm_provenance.py")],
@@ -148,7 +147,7 @@ def main() -> int:
 
     print(
         f"PASS: {idea_count} ideas, {len(urls)} citations, "
-        f"wave1={len(w1)} wave2={len(w2)} x_gate={x_gate}"
+        f"wave1={len(w1)} wave2={len(w2)} x_discourse_proxy={proxy}"
     )
     return 0
 

@@ -310,23 +310,26 @@ def main() -> int:
     w2_manifest = emit(wave2_items, WAVE2, SCRATCH / "wave2", "wave2")
 
     attempt_manifest: list[dict] = []
-    for idx, att in enumerate(all_attempts, 1):
-        fname = f"{idx:02d}-site-x-search-failed.txt"
-        header = [
-            "capture_source: parent_session_updates.jsonl",
-            "logged_only: true",
-            f"tool: {att['tool']}",
-            f"tool_call_id: {att['tool_call_id']}",
-            f"call_timestamp: {att['call_ts']}",
-            f"result_timestamp: {att['result_ts']}",
-            f"first_synthesis_timestamp: {synth_ts}",
-            f"bytes: {att['bytes']}",
-            f"reason: {att['reason']}",
-        ]
-        body = f"site:x.com WebSearch provider error (not counted toward X gate).\ntool_call_id={att['tool_call_id']}"
-        write_transcript(WAVE2_ATTEMPTS, fname, header, body)
-        shutil.copy2(WAVE2_ATTEMPTS / fname, SCRATCH / "wave2" / "attempts" / fname)
-        attempt_manifest.append(att)
+    for att in all_attempts:
+        attempt_manifest.append(
+            {
+                **att,
+                "note": "Provider error body omitted; see parent updates.jsonl tool_call_update.",
+            }
+        )
+    attempts_json = {
+        "logged_only": True,
+        "not_counted_toward_any_gate": True,
+        "first_synthesis_timestamp": synth_ts,
+        "native_x_tools_available": False,
+        "site_x_websearch_failures": attempt_manifest,
+    }
+    WAVE2_ATTEMPTS.mkdir(parents=True, exist_ok=True)
+    attempts_path = WAVE2_ATTEMPTS / "site-x-failures.json"
+    attempts_path.write_text(json.dumps(attempts_json, indent=2), encoding="utf-8")
+    scratch_attempts = SCRATCH / "wave2" / "attempts"
+    scratch_attempts.mkdir(parents=True, exist_ok=True)
+    shutil.copy2(attempts_path, scratch_attempts / "site-x-failures.json")
 
     (WAVE1 / "MANIFEST.json").write_text(
         json.dumps(

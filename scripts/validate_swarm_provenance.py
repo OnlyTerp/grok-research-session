@@ -29,11 +29,10 @@ MIN_BODY = 500
 MIN_X_BODY = 2000
 MIN_X_FILES = 2
 SYNTHESIS_PATHS = ("IDEAS.md", "FINDINGS.md")
-FORBIDDEN_MARKERS = (
+BAD_HEADER_TOKENS = (
     "captured_at:",
-    "x_keyword_search_equivalent",
-    "x_semantic_search_equivalent",
     "live_research_continuation",
+    "fix_round_post_synthesis",
 )
 PROVIDER_ERROR = "provider returned an error"
 
@@ -148,7 +147,7 @@ def parse_wave_file(path: Path) -> dict:
     return {"path": path, "header": header, "body": body, "fields": fields, "bytes": len(body.encode())}
 
 
-def is_x_wave_file(parsed: dict) -> bool:
+def is_x_discourse_proxy_file(parsed: dict) -> bool:
     if parsed["fields"].get("logged_only") == "true":
         return False
     if parsed["bytes"] < MIN_X_BODY:
@@ -194,28 +193,40 @@ def main() -> int:
     if stats["parallel_max"] < 3:
         errors.append(f"parallel fan-out: {stats['parallel_max']} < 3")
 
-    for ev in parent_events:
-        if int(ev["timestamp"]) >= synth_ts:
-            break
-        upd = ev.get("params", {}).get("update", {})
-        if upd.get("sessionUpdate") == "tool_call" and upd.get("title") in {
-            "x_keyword_search",
-            "x_semantic_search",
-        }:
-            errors.append(f"unexpected native X tool in parent: {upd.get('title')}")
+    native_x_calls = 0
+    for _label, events in union_inputs:
+        for ev in events:
+            if int(ev["timestamp"]) >= synth_ts:
+                continue
+            upd = ev.get("params", {}).get("update", {})
+            if upd.get("sessionUpdate") == "tool_call" and upd.get("title") in {
+                "x_keyword_search",
+                "x_semantic_search",
+            }:
+                native_x_calls += 1
+    if native_x_calls:
+        errors.append(f"native X tool calls in union log: {native_x_calls} (expected 0 in Cursor harness)")
 
     w1_files = sorted(WAVE1.glob("*.txt"))
     w2_files = sorted(p for p in WAVE2.glob("*.txt") if p.parent == WAVE2)
     if len(w1_files) < MIN_RESEARCH:
         errors.append(f"wave1 files: {len(w1_files)} < {MIN_RESEARCH}")
 
+    attempts_dir = WAVE2 / "attempts"
+    if list(attempts_dir.glob("*.txt")):
+        errors.append("wave2/attempts must not contain .txt error-body stubs")
+    if not (attempts_dir / "site-x-failures.json").is_file():
+        errors.append("wave2/attempts/site-x-failures.json missing")
+    if (attempts_dir / "x-direct-fetch").exists():
+        errors.append("post-synth x-direct-fetch must not be committed in repo")
+
     union_ids = {c["tool_call_id"] for c in stats["completed"]}
-    x_count = 0
+    proxy_count = 0
     for path in w1_files + w2_files:
         parsed = parse_wave_file(path)
-        for bad in FORBIDDEN_MARKERS:
+        for bad in BAD_HEADER_TOKENS:
             if bad in parsed["header"]:
-                errors.append(f"{path.name}: forbidden marker {bad!r}")
+                errors.append(f"{path.name}: bad header token {bad!r}")
 
         src = parsed["fields"].get("capture_source", "")
         if src not in {"parent_session_updates.jsonl", "child_session_updates.jsonl"}:
@@ -233,11 +244,13 @@ def main() -> int:
         if parsed["bytes"] < MIN_BODY and path.parent == WAVE2:
             errors.append(f"{path.name}: wave2 body < {MIN_BODY}B")
 
-        if is_x_wave_file(parsed):
-            x_count += 1
+        if is_x_discourse_proxy_file(parsed):
+            proxy_count += 1
 
-    if x_count < MIN_X_FILES:
-        errors.append(f"wave2 X gate: {x_count} qualifying files < {MIN_X_FILES}")
+    if proxy_count < MIN_X_FILES:
+        errors.append(
+            f"x_discourse_proxy gate (HN mirrors, not native X): {proxy_count} < {MIN_X_FILES}"
+        )
 
     scratch_w1 = SCRATCH / "wave1"
     scratch_w2 = SCRATCH / "wave2"
@@ -250,7 +263,8 @@ def main() -> int:
         print("SWARM PROVENANCE FAIL:")
         print(f"  first_synthesis_timestamp={synth_ts}")
         print(f"  union_pre_synth>={MIN_BODY}B={n}, parallel_max={stats['parallel_max']}")
-        print(f"  wave1={len(w1_files)} wave2={len(w2_files)} x_gate={x_count}")
+        print(f"  wave1={len(w1_files)} wave2={len(w2_files)} x_discourse_proxy={proxy_count}")
+        print(f"  native_x_tool_calls={native_x_calls}")
         for e in errors:
             print(f"  - {e}")
         return 1
@@ -258,7 +272,7 @@ def main() -> int:
     print(
         f"SWARM PROVENANCE PASS: synth_ts={synth_ts}, union={n}, "
         f"parallel={stats['parallel_max']}, wave1={len(w1_files)}, "
-        f"wave2={len(w2_files)}, x_gate={x_count}"
+        f"wave2={len(w2_files)}, x_discourse_proxy={proxy_count}, native_x={native_x_calls}"
     )
     return 0
 

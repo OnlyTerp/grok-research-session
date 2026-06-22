@@ -1,0 +1,26 @@
+{
+  "logged_only": true,
+  "not_counted_toward_any_gate": true,
+  "first_synthesis_timestamp": 1782159521,
+  "native_x_tools_available": false,
+  "site_x_websearch_failures": [
+    {
+      "tool": "WebSearch",
+      "tool_call_id": "call-58d82445-d154-4ddb-ac4a-37ab8247dfe8-composer_call_VOaAT",
+      "call_ts": 1782158367,
+      "result_ts": 1782158368,
+      "bytes": 123,
+      "reason": "site_x_provider_error",
+      "note": "Provider error body omitted; see parent updates.jsonl tool_call_update."
+    },
+    {
+      "tool": "WebSearch",
+      "tool_call_id": "call-58d82445-d154-4ddb-ac4a-37ab8247dfe8-composer_call_Pmnr7",
+      "call_ts": 1782158367,
+      "result_ts": 1782158475,
+      "bytes": 123,
+      "reason": "site_x_provider_error",
+      "note": "Provider error body omitted; see parent updates.jsonl tool_call_update."
+    }
+  ]
+}
