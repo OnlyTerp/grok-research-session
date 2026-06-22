@@ -1,34 +1,17 @@
 # Grok Research Session
 
-Mega-swarm **web** research (June 22, 2026) for **Grok CLI / Grok Build harness** improvement ideas.
+> **Correction (June 22, 2026):** This repo was initially used for the wrong target (Grok CLI harness). The actual research deliverables for **Haptic Sight** live in the target repo.
 
-**Repo:** https://github.com/OnlyTerp/grok-research-session
+## Haptic Sight research (correct deliverables)
 
-## What was done
+**https://github.com/OnlyTerp/haptic-sight/tree/main/research/grok-swarm-session-2026-06-22**
 
-| Deliverable | Status |
-|-------------|--------|
-| Mega-swarm web research (15+ parallel queries, 4 Task subagents) | Done |
-| 56 cited ideas in `IDEAS.md` | Done |
-| Native `x_keyword_search` / `x_semantic_search` | **Not available** in Cursor harness |
-| X-adjacent discourse via HN web proxies | Done (see `wave2/`, [LIMITATIONS.md](LIMITATIONS.md)) |
+| File | Content |
+|------|---------|
+| [IDEAS.md](https://github.com/OnlyTerp/haptic-sight/blob/main/research/grok-swarm-session-2026-06-22/IDEAS.md) | 36 improvement ideas for haptic-sight |
+| [FINDINGS.md](https://github.com/OnlyTerp/haptic-sight/blob/main/research/grok-swarm-session-2026-06-22/FINDINGS.md) | Competitive synthesis + P0 actions |
+| [RESEARCH_LOG.md](https://github.com/OnlyTerp/haptic-sight/blob/main/research/grok-swarm-session-2026-06-22/RESEARCH_LOG.md) | Sources and methodology |
 
-## Provenance
+## This repo
 
-Parent + child `updates.jsonl` union via `scripts/extract_swarm_union.py`. Synthesis cutoff: `first_synthesis_timestamp=1782159521`.
-
-| Wave | Content | Files |
-|------|---------|------:|
-| `wave1/` | Parent WebSearch/WebFetch | 15 |
-| `wave2/` | Child HN Algolia + HN X-engineer threads (proxies) | 3 |
-| `wave2/attempts/` | `site-x-failures.json` metadata only | 1 |
-
-## Verify
-
-```bash
-python3 scripts/scope_guard.py
-python3 scripts/extract_swarm_union.py
-python3 scripts/validate_swarm_provenance.py
-python3 tests/verify_research_artifacts.py
-bash scripts/run_verification_plan.sh
-```
+Legacy artifacts from the mis-scoped Grok CLI session remain here for audit history. **Do not use for haptic-sight planning** — use the link above.
